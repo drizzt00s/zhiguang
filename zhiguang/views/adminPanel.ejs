@@ -2,26 +2,92 @@
 <html>
   <head>
     <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/vue.js"></script>
   </head>
   <style>
 
   </style>
     <body>
-        您好:
-        <span id="showAdmin"><%= adminName %></span>
+        <div id="app">
+         
+            您好:
+            <span id="showAdmin"><%= adminName %></span>
+            <ul>
+                <li v-for='user in users'>
+                    <div><span>账号:</span><span class='userAcct'>{{user.acct}}</span></div>
+                    <div><span>邮件:</span><span>{{user.mail}}</span></div>
+                    <div><span>个人照:</span><img :src="user.photo" /></div>
+                    <div><span>身份证正面照:</span><img :src="user.id_photo1" /></div>
+                    <div><span>身份证反面照:</span><img :src="user.id_photo2" /></div>
+                    <div>是否已认证:<span>否</span></div>
+                    <div><button class="certificateUser" v-on:click="certificateUser($event)">实名认证</button></div>
+                </li>
+            </ul>
+        </div>
+
         <script>
-            $(document).ready(function () {
-                $.ajax({
-                type : "POST",
-                url : "?",
-                data : data,
-                success : function(result) {
-    
+            var app = new Vue({
+                el:"#app",
+                data:{
+                    users:null
                 },
-                error : function(e){
-                    
+                methods:{
+                    certificateUser:function(e){
+                        var acct = $(e.target).parents("li").find("span.userAcct").text();
+                        alert(acct);
+                       
+                    }
                 }
             });
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                function pullUsers(){
+                    $.ajax({
+                        url : "/allUsers",
+                        success : function(result) {
+                            for(var i = 0; i < result.length; i++){
+                                for(var k in result[i]){
+                                    if(k === "photo" || k === "id_photo1" ||k === "id_photo2"){
+                                        var imageUrl = result[i][k];
+                                        if(imageUrl && imageUrl.length > 0){
+                                            var index = imageUrl.indexOf("upload");
+                                            imageUrl = imageUrl.substring(index - 1);
+                                            imageUrl = imageUrl.replace(/\\/g,"/");
+                                            result[i][k] = imageUrl;
+                                        }else{
+                                            result[i][k] = "/images/unknown.jpg";
+                                        }
+                                    }
+                                    if(k === "certificated"){
+                                        var isCertificated = result[i][k];
+                                        if(isCertificated === null || isCertificated === 0){
+                                            isCertificated = "未认证";
+                                        }else{
+                                            isCertificated = "已认证";
+                                        }
+                                    }
+                                }                              
+                            }
+
+                            console.log(result);
+
+
+                            //console.log(result[0].photo);
+                            app.users = result;
+                        },
+                        error : function(e){
+
+                        }
+                    });
+                }
+                pullUsers();
+
+
+            
+                
+
 
             });
         </script>

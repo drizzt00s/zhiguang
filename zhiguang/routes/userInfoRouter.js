@@ -85,9 +85,6 @@ router.get('/', function(req, res, next) {
             if(!birthday){
                 birthday = "未填写";
             }
-            
-            
-            
             res.render('userInfo',{
                 certificated:certificated,
                 idPhoto1:idPhoto1,

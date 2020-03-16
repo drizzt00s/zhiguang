@@ -45,11 +45,6 @@ router.post("/", function(req, res, next){
         req.session.userData = userData;
         res.send(data);
     });
-
-
-
-    
-
 });
 
 module.exports = router;

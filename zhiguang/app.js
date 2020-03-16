@@ -42,6 +42,7 @@ var loginRouter = require('./routes/loginRouter');
 var loginPostRouter = require('./routes/loginPostRouter');
 var logoutRouter = require('./routes/logoutRouter');
 var userInfoCompleteRouter = require('./routes/userInfoCompleteRouter');
+var allUsersRouter = require('./routes/allUsersRouter');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -56,6 +57,9 @@ app.use("/login", loginRouter);
 app.use("/loginPost", loginPostRouter);
 app.use("/logout", logoutRouter);
 app.use("/userInfoComplete", userInfoCompleteRouter);
+app.use("/allUsers", allUsersRouter);
+
+
 
 
 
