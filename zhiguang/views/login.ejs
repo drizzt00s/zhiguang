@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+  </head>
+  <style>
+
+  </style>
+    <body>
+        <body>
+
+            <div>
+                <label name="acct" />手机:</label><input type="text" name="acct" id="acct" /><br />
+                <label name="pwd" />密码:</label><input type="password" name="pwd" id="pwd" /><br />
+                <button id='userLogin'>登录</button>
+            </div>
+        </body>
+
+        <script>
+            $(document).ready(function () {
+                    $("#userLogin").on("click", function(){
+                    var acct = $("#acct").val();
+                    var pwd = $("#pwd").val();
+                    var data = {};
+                    data.acct = acct;
+                    data.pwd = pwd;
+                    $.ajax({
+                    type : "POST",
+                    url : "/loginPost",
+                    data : data,
+                    success : function(result) {
+                        var code = result.code;
+                        if(code === 0){
+                            alert("用戶不存在");
+                        } else if(code === 1){
+                            alert("密码错误");
+                        } else if(code === 2){
+                            var acct = result.acct;
+                            alert("欢迎 你将以 " + acct + " 的身份进入主页");
+                            window.location.href = "http://localhost:3000/";
+                        }
+                    },
+                    error : function(e){
+                        
+                    }
+                });
+                });
+
+            });
+        </script>
+
+ 
+    </body>
+</html>

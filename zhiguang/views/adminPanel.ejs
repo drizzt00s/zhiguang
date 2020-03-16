@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+  </head>
+  <style>
+
+  </style>
+    <body>
+        您好:
+        <span id="showAdmin"><%= adminName %></span>
+        <script>
+            $(document).ready(function () {
+                $.ajax({
+                type : "POST",
+                url : "?",
+                data : data,
+                success : function(result) {
+    
+                },
+                error : function(e){
+                    
+                }
+            });
+
+            });
+        </script>
+
+ 
+    </body>
+</html>

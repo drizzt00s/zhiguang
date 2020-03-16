@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="stylesheets/style1.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/style2.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+
+
+    <script type="text/javascript" src="https://css.zhiyuanyun.com/lib/jquery.scroll.js"></script>
+<script type="text/javascript" src="https://css.zhiyuanyun.com/lib/nbspslider/jquery.nbspslider.1.1.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+        $("#news_photo").nbspSlider({widths:'500px',heights:'300px',numBtnSty:"roundness",altAlign:"left",numBtnShow:1,speeds:500,delays:4000,preNexBtnShow:0,altShow:1,altBgColor:"#000",altHeight:"45px"});
+        C.tabs({"params":[
+            {"nav":"#btn1","con":"#tab1","sclass":"current","nclass":""},
+            {"nav":"#btn2","con":"#tab2","sclass":"current","nclass":""},
+            {"nav":"#btn3","con":"#tab3","sclass":"current","nclass":""}
+            ]
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $("#logout").on("click", function(){
+            $.ajax({
+                url : "/logout",
+                success : function(result) {
+                    if(result.code === 1){
+                        alert("退出登录成功");
+                        window.location.href = window.location.href
+                    }
+                },
+                error : function(e){
+                    
+                }
+            });
+
+        });
+   
+    });
+</script>
+
+  </head>
+  <style>
+      .logo{
+        background-image: url("images/gaitubao_Fua7iEdpb5tGQMcHs6HqkV94pQis.png")!important;
+        background-repeat:no-repeat!important;
+      }
+      .sShow{
+          display: none;
+      }
+  </style>
+  <body>
+    <div class="header">
+        <div class="wrap clearfix topmenu">
+            <meta name="csrf-token" content="75194b40ade6ee490c32bb186cb33a55d96fa3fbf9369195979ec84416d2926f">
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $("#news_photo").nbspSlider({widths:'500px',heights:'300px',numBtnSty:"roundness",altAlign:"left",numBtnShow:1,speeds:500,delays:4000,preNexBtnShow:0,altShow:1,altBgColor:"#000",altHeight:"45px"});
+                    //$('#index_ad_right').kxbdSuperMarquee({isEqual:false,distance:120,time:3,btnGo:{ left:'#index_ad_right_inner'},direction:'left'});
+                    $('#index_photo1').kxbdSuperMarquee({isEqual:false,distance:186,time:3,btnGo:{ left:'.aleft',right:'.aright'},direction:'left'});
+                    $('#index_photo2').kxbdSuperMarquee({isEqual:false,distance:186,time:3,btnGo:{ left:'.aleft',right:'.aright'},direction:'left'});
+                    $('#index_photo3').kxbdSuperMarquee({isEqual:false,distance:186,time:3,btnGo:{ left:'.aleft',right:'.aright'},direction:'left'});
+                    $('#index_photo4').kxbdSuperMarquee({isEqual:false,distance:186,time:3,btnGo:{ left:'.aleft',right:'.aright'},direction:'left'});
+                });
+                $(function(){
+                    C.tabs({"params":[
+                        {"nav":"#btn1","con":"#tab1","sclass":"current","nclass":""},
+                        {"nav":"#btn2","con":"#tab2","sclass":"current","nclass":""},
+                        {"nav":"#btn3","con":"#tab3","sclass":"current","nclass":""}
+                        ]
+                    });
+                    C.tabs({"event":"mouseover","params":[
+                        {"nav":"#tj_tab1","con":"#tj_con1","sclass":"cur","nclass":"ns1"},
+                        {"nav":"#tj_tab2","con":"#tj_con2","sclass":"cur","nclass":"ns2"},
+                    ]
+                    });
+                    
+                    
+                    
+                    C.tabs({"event":"mouseover","params":[
+                        {"nav":"#lm1_1","con":"#lm1_tab1","sclass":"l","nclass":""},
+                        {"nav":"#lm1_2","con":"#lm1_tab2","sclass":"l","nclass":""}
+                        ]
+                    });
+                    
+                    C.tabs({"event":"mouseover","params":[
+                        {"nav":"#lm2_1","con":"#lm2_tab1","sclass":"l","nclass":""},
+                        {"nav":"#lm2_2","con":"#lm2_tab2","sclass":"l","nclass":""}
+                        ]
+                    });
+                    
+                    C.tabs({"event":"mouseover","params":[
+                        {"nav":"#lm3_1","con":"#lm3_tab1","sclass":"l","nclass":""},
+                        {"nav":"#lm3_2","con":"#lm3_tab2","sclass":"l","nclass":""}
+                        ]
+                    });
+                    
+                    C.tabs({"event":"mouseover","params":[
+                        {"nav":"#lm4_1","con":"#lm4_tab1","sclass":"l","nclass":""},
+                        {"nav":"#lm4_2","con":"#lm4_tab2","sclass":"l","nclass":""},
+                        {"nav":"#lm4_3","con":"#lm4_tab3","sclass":"l","nclass":""},
+                        {"nav":"#lm4_4","con":"#lm4_tab4","sclass":"l","nclass":""}
+                        ]
+                    });
+            
+                    $('.menu_div').css('left',($(document).width()-1004)/2+'px');
+                    $('.menu').mouseover(function(){
+                        $('#'+$(this).attr('id')+'_div').css('display','block').unbind().bind('mouseover',function(){
+                            $(this).css('display','block');
+                        });
+                    });
+                    $('.nav').mouseout(function(){
+                        $('.menu_div').css('display','none');
+                    });
+            
+                });
+                function show_area(area){
+                    $('#map').attr('src','//css.zhiyuanyun.com/zyzg.zyy/map/'+decodeURIComponent(area)+'.png');
+                    $('.area_list').each(function(){
+                        $(this).css('display','none');
+                        var area_txt=$(this).attr('area');//alert(area_txt);alert(typeof(area_txt));
+                        if(area_txt.indexOf(area)>=0){
+                            $(this).css('display','block').find('.tit').html(area+'志愿服务数据统计');
+                        }
+                    });
+                    var has=0;
+                    $('.area_list').each(function(){
+                        if($(this).css('display')=='block') has++;
+                    });
+                    if(has==0) $('#nodata').css('display','block').find('.tit').html(area+'志愿服务数据统计');
+                }
+                function show_area_all(){
+                    $('.area_list').css('display','none');
+                    $('#all').css('display','block');
+                }
+            </script>
+
+            <span class="l" id='checkL'> 
+                <a href="/login"  style="color:red">请登录</a>&nbsp;&nbsp;
+                <a href="/register">志愿者注册</a>
+            </span>
+            <span><span style='color:red' id="logout">退出</span><a href="/userInfo"><span id="userSpan" style='color:red'><%= user %></span></a> </span>
+    
+    <span class="r topmenu_r">
+       
+                <div class="topmenu_txt">
+            <a href="/app/tougao/">我要投稿</a>
+        </div>
+                
+     </span></div>
+    </div>
+    
+    <div class="header_logo">
+        <div class="wrap clearfix">
+            <div class="l logo">
+                
+            </div>  
+     
+            <div class="r" style="width:550px;">   
+                <div class="l tsearch clearfix" style="width:350px;">
+                    <div class="l" style="width:76px;height:44px;line-height:44px;text-align:center;">
+                                <div id="tsearch_select">
+                                    <div id="select">新闻文章</div><input type="hidden" id="stype" value="3">                                <div id="tsearch_select_div">
+                                        <a href="javascript:void(0);" onclick="$('#tsearch_select>#select').html($(this).html());$('#stype').val(1);chpos(this);">志愿项目</a>
+                                        <a href="javascript:void(0);" onclick="$('#tsearch_select>#select').html($(this).html());$('#stype').val(2);chpos(this);">志愿团体</a>
+                                        <a href="javascript:void(0);" onclick="$('#tsearch_select>#select').html($(this).html());$('#stype').val(3);chpos(this);">新闻文章</a>
+                                    </div>
+                                </div>  
+                    </div>
+                    <div class="l">
+                        &nbsp;&nbsp;&nbsp;<input style="width:140px;" type="text" class="sq" id="sq" value="">
+                    </div>
+                    <div class="r">
+                        <a href="javascript:void(0);" onclick="top_search();" style="display:block;width:100px;height:44px;display: block; width: 100px; height: 44px; background:#4082d8; color:#fff; font-size: 18px; line-height: 44px; text-align: center;">搜索</a>
+                    </div>
+                    
+                </div>
+                
+                <div class="r">
+                    <a href="/" style="display:block;width:100px;height:100px;"></a>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="nav">
+        <div class="wrap" style="color:#fff;"><a href="/" style="width:73px;" class="sel">首页</a><a href="/app/opp/list.php">志愿项目</a><a href="/app/org/list.php">志愿团体</a><a href="//www.chinavolunteer.cn/cate/zyzg_zyfc/">志愿风采</a><a href="//www.chinavolunteer.cn/cate/zyzg_xxdt/">信息动态</a><a href="//www.chinavolunteer.cn/cate/zyzg_mtbd/">媒体报道</a><a href="//www.chinavolunteer.cn/cate/zyzg_yjpx/">研究培训</a><a href="//www.chinavolunteer.cn/cate/zyzg_zcwj/">政策文件</a><a href="/app/help/list.php">求助中心</a><a href="//www.chinavolunteer.cn/cate/zyzg_syzn/">使用指南</a></div>
+    </div>
+    <style>
+        #reg_province_vol ul,#reg_province_org ul,#reg_province_login ul,#map_org ul,#map_opp ul{width:100%;margin:10px;}
+        #reg_province_vol ul li,#reg_province_org ul li,#reg_province_login ul li,#map_org ul li,#map_opp ul li{float:left;width:20%;text-align:center;line-height:200%;}
+    </style>
+    <div id="reg_province_vol" style="display:none;">
+        <ul><li style="width:96%;border-bottom:1px solid #eee;text-align:left;"><a href="//npo.chinavolunteer.cn/app/user/register.php">全国性社会组织</a></li><li><a href="http://www.bv2008.cn/app/user/register.php">北京市</a></li><li><a href="http://tj.chinavolunteer.cn/app/user/register.php">天津市</a></li><li><a href="http://he.chinavolunteer.cn/app/user/register.php">河北省</a></li><li><a href="http://sx.chinavolunteer.cn/app/user/register.php">山西省</a></li><li><a href="http://nm.chinavolunteer.cn/app/user/register.php">内蒙古自治区</a></li><li><a href="http://ln.chinavolunteer.cn/app/user/register.php">辽宁省</a></li><li><a href="http://jl.chinavolunteer.cn/app/user/register.php">吉林省</a></li><li><a href="http://hl.chinavolunteer.cn/app/user/register.php">黑龙江省</a></li><li><a href="http://sh.chinavolunteer.cn/app/user/register.php">上海市</a></li><li><a href="http://js.chinavolunteer.cn/app/user/register.php">江苏省</a></li><li><a href="http://zj.chinavolunteer.cn/app/user/register.php">浙江省</a></li><li><a href="http://ah.chinavolunteer.cn/app/user/register.php">安徽省</a></li><li><a href="http://www.fjvs.org/app/user/register.php">福建省</a></li><li><a href="http://jx.chinavolunteer.cn/app/user/register.php">江西省</a></li><li><a href="http://sd.chinavolunteer.cn/app/user/register.php">山东省</a></li><li><a href="http://ha.chinavolunteer.cn/app/user/register.php">河南省</a></li><li><a href="http://hb.chinavolunteer.cn/app/user/register.php">湖北省</a></li><li><a href="http://hn.chinavolunteer.cn/app/user/register.php">湖南省</a></li><li><a href="http://gd.chinavolunteer.cn/app/user/register.php">广东省</a></li><li><a href="http://gx.chinavolunteer.cn/app/user/register.php">广西自治区</a></li><li><a href="http://hi.chinavolunteer.cn/app/user/register.php">海南省</a></li><li><a href="http://www.zycq.org/app/user/register.php">重庆市</a></li><li><a href="http://sc.chinavolunteer.cn/app/user/register.php">四川省</a></li><li><a href="http://www.zygz.org.cn/app/user/register.php">贵州省</a></li><li><a href="http://yn.chinavolunteer.cn/app/user/register.php">云南省</a></li><li><a href="http://xz.chinavolunteer.cn/app/user/register.php">西藏自治区</a></li><li><a href="http://sx.zhiyuanyun.com/app/user/register.php">陕西省</a></li><li><a href="http://gs.chinavolunteer.cn/app/user/register.php">甘肃省</a></li><li><a href="http://qh.chinavolunteer.cn/app/user/register.php">青海省</a></li><li><a href="http://nx.chinavolunteer.cn/app/user/register.php">宁夏自治区</a></li><li><a href="http://xj.chinavolunteer.cn/app/user/register.php">新疆自治区</a></li><li><a href="http://bt.zhiyuanyun.com/app/user/register.php">兵团</a></li></ul></div>
+    
+    <div id="reg_province_org" style="display:none;">
+        <ul><li style="width:96%;border-bottom:1px solid #eee;text-align:left;"><a href="//npo.chinavolunteer.cn/app/user/register.php?type=org">全国性社会组织</a></li><li><a href="http://www.bv2008.cn/app/user/register.php?type=org">北京市</a></li><li><a href="http://tj.chinavolunteer.cn/app/user/register.php?type=org">天津市</a></li><li><a href="http://he.chinavolunteer.cn/app/user/register.php?type=org">河北省</a></li><li><a href="http://sx.chinavolunteer.cn/app/user/register.php?type=org">山西省</a></li><li><a href="http://nm.chinavolunteer.cn/app/user/register.php?type=org">内蒙古自治区</a></li><li><a href="http://ln.chinavolunteer.cn/app/user/register.php?type=org">辽宁省</a></li><li><a href="http://jl.chinavolunteer.cn/app/user/register.php?type=org">吉林省</a></li><li><a href="http://hl.chinavolunteer.cn/app/user/register.php?type=org">黑龙江省</a></li><li><a href="http://sh.chinavolunteer.cn/app/user/register.php?type=org">上海市</a></li><li><a href="http://js.chinavolunteer.cn/app/user/register.php?type=org">江苏省</a></li><li><a href="http://zj.chinavolunteer.cn/app/user/register.php?type=org">浙江省</a></li><li><a href="http://ah.chinavolunteer.cn/app/user/register.php?type=org">安徽省</a></li><li><a href="http://www.fjvs.org/app/user/register.php?type=org">福建省</a></li><li><a href="http://jx.chinavolunteer.cn/app/user/register.php?type=org">江西省</a></li><li><a href="http://sd.chinavolunteer.cn/app/user/register.php?type=org">山东省</a></li><li><a href="http://ha.chinavolunteer.cn/app/user/register.php?type=org">河南省</a></li><li><a href="http://hb.chinavolunteer.cn/app/user/register.php?type=org">湖北省</a></li><li><a href="http://hn.chinavolunteer.cn/app/user/register.php?type=org">湖南省</a></li><li><a href="http://gd.chinavolunteer.cn/app/user/register.php?type=org">广东省</a></li><li><a href="http://gx.chinavolunteer.cn/app/user/register.php?type=org">广西自治区</a></li><li><a href="http://hi.chinavolunteer.cn/app/user/register.php?type=org">海南省</a></li><li><a href="http://www.zycq.org/app/user/register.php?type=org">重庆市</a></li><li><a href="http://sc.chinavolunteer.cn/app/user/register.php?type=org">四川省</a></li><li><a href="http://www.zygz.org.cn/app/user/register.php?type=org">贵州省</a></li><li><a href="http://yn.chinavolunteer.cn/app/user/register.php?type=org">云南省</a></li><li><a href="http://xz.chinavolunteer.cn/app/user/register.php?type=org">西藏自治区</a></li><li><a href="http://sx.zhiyuanyun.com/app/user/register.php?type=org">陕西省</a></li><li><a href="http://gs.chinavolunteer.cn/app/user/register.php?type=org">甘肃省</a></li><li><a href="http://qh.chinavolunteer.cn/app/user/register.php?type=org">青海省</a></li><li><a href="http://nx.chinavolunteer.cn/app/user/register.php?type=org">宁夏自治区</a></li><li><a href="http://xj.chinavolunteer.cn/app/user/register.php?type=org">新疆自治区</a></li><li><a href="http://bt.zhiyuanyun.com/app/user/register.php?type=org">兵团</a></li></ul></div>
+    
+    <div id="reg_province_login" style="display:none;">
+        <ul><li style="width:96%;border-bottom:1px solid #eee;text-align:left;"><a href="//npo.chinavolunteer.cn/app/user/login.php">全国性社会组织</a></li><li><a href="http://www.bv2008.cn/app/user/login.php">北京市</a></li><li><a href="http://tj.chinavolunteer.cn/app/user/login.php">天津市</a></li><li><a href="http://he.chinavolunteer.cn/app/user/login.php">河北省</a></li><li><a href="http://sx.chinavolunteer.cn/app/user/login.php">山西省</a></li><li><a href="http://nm.chinavolunteer.cn/app/user/login.php">内蒙古自治区</a></li><li><a href="http://ln.chinavolunteer.cn/app/user/login.php">辽宁省</a></li><li><a href="http://jl.chinavolunteer.cn/app/user/login.php">吉林省</a></li><li><a href="http://hl.chinavolunteer.cn/app/user/login.php">黑龙江省</a></li><li><a href="http://sh.chinavolunteer.cn/app/user/login.php">上海市</a></li><li><a href="http://js.chinavolunteer.cn/app/user/login.php">江苏省</a></li><li><a href="http://zj.chinavolunteer.cn/app/user/login.php">浙江省</a></li><li><a href="http://ah.chinavolunteer.cn/app/user/login.php">安徽省</a></li><li><a href="http://www.fjvs.org/app/user/login.php">福建省</a></li><li><a href="http://jx.chinavolunteer.cn/app/user/login.php">江西省</a></li><li><a href="http://sd.chinavolunteer.cn/app/user/login.php">山东省</a></li><li><a href="http://ha.chinavolunteer.cn/app/user/login.php">河南省</a></li><li><a href="http://hb.chinavolunteer.cn/app/user/login.php">湖北省</a></li><li><a href="http://hn.chinavolunteer.cn/app/user/login.php">湖南省</a></li><li><a href="http://gd.chinavolunteer.cn/app/user/login.php">广东省</a></li><li><a href="http://gx.chinavolunteer.cn/app/user/login.php">广西自治区</a></li><li><a href="http://hi.chinavolunteer.cn/app/user/login.php">海南省</a></li><li><a href="http://www.zycq.org/app/user/login.php">重庆市</a></li><li><a href="http://sc.chinavolunteer.cn/app/user/login.php">四川省</a></li><li><a href="http://www.zygz.org.cn/app/user/login.php">贵州省</a></li><li><a href="http://yn.chinavolunteer.cn/app/user/login.php">云南省</a></li><li><a href="http://xz.chinavolunteer.cn/app/user/login.php">西藏自治区</a></li><li><a href="http://sx.zhiyuanyun.com/app/user/login.php">陕西省</a></li><li><a href="http://gs.chinavolunteer.cn/app/user/login.php">甘肃省</a></li><li><a href="http://qh.chinavolunteer.cn/app/user/login.php">青海省</a></li><li><a href="http://nx.chinavolunteer.cn/app/user/login.php">宁夏自治区</a></li><li><a href="http://xj.chinavolunteer.cn/app/user/login.php">新疆自治区</a></li><li><a href="http://bt.zhiyuanyun.com/app/user/login.php">兵团</a></li></ul></div>
+    
+    <div id="map_org" style="display:none;">
+        <ul><li><a href="http://www.bv2008.cn/app/org/list.php?mode=map">北京市</a></li><li><a href="http://tj.chinavolunteer.cn/app/org/list.php?mode=map">天津市</a></li><li><a href="http://he.chinavolunteer.cn/app/org/list.php?mode=map">河北省</a></li><li><a href="http://sx.chinavolunteer.cn/app/org/list.php?mode=map">山西省</a></li><li><a href="http://nm.chinavolunteer.cn/app/org/list.php?mode=map">内蒙古自治区</a></li><li><a href="http://ln.chinavolunteer.cn/app/org/list.php?mode=map">辽宁省</a></li><li><a href="http://jl.chinavolunteer.cn/app/org/list.php?mode=map">吉林省</a></li><li><a href="http://hl.chinavolunteer.cn/app/org/list.php?mode=map">黑龙江省</a></li><li><a href="http://sh.chinavolunteer.cn/app/org/list.php?mode=map">上海市</a></li><li><a href="http://js.chinavolunteer.cn/app/org/list.php?mode=map">江苏省</a></li><li><a href="http://zj.chinavolunteer.cn/app/org/list.php?mode=map">浙江省</a></li><li><a href="http://ah.chinavolunteer.cn/app/org/list.php?mode=map">安徽省</a></li><li><a href="http://www.fjvs.org/app/org/list.php?mode=map">福建省</a></li><li><a href="http://jx.chinavolunteer.cn/app/org/list.php?mode=map">江西省</a></li><li><a href="http://sd.chinavolunteer.cn/app/org/list.php?mode=map">山东省</a></li><li><a href="http://ha.chinavolunteer.cn/app/org/list.php?mode=map">河南省</a></li><li><a href="http://hb.chinavolunteer.cn/app/org/list.php?mode=map">湖北省</a></li><li><a href="http://hn.chinavolunteer.cn/app/org/list.php?mode=map">湖南省</a></li><li><a href="http://gd.chinavolunteer.cn/app/org/list.php?mode=map">广东省</a></li><li><a href="http://gx.chinavolunteer.cn/app/org/list.php?mode=map">广西自治区</a></li><li><a href="http://hi.chinavolunteer.cn/app/org/list.php?mode=map">海南省</a></li><li><a href="http://www.zycq.org/app/org/list.php?mode=map">重庆市</a></li><li><a href="http://sc.chinavolunteer.cn/app/org/list.php?mode=map">四川省</a></li><li><a href="http://www.zygz.org.cn/app/org/list.php?mode=map">贵州省</a></li><li><a href="http://yn.chinavolunteer.cn/app/org/list.php?mode=map">云南省</a></li><li><a href="http://xz.chinavolunteer.cn/app/org/list.php?mode=map">西藏自治区</a></li><li><a href="http://sx.zhiyuanyun.com/app/org/list.php?mode=map">陕西省</a></li><li><a href="http://gs.chinavolunteer.cn/app/org/list.php?mode=map">甘肃省</a></li><li><a href="http://qh.chinavolunteer.cn/app/org/list.php?mode=map">青海省</a></li><li><a href="http://nx.chinavolunteer.cn/app/org/list.php?mode=map">宁夏自治区</a></li><li><a href="http://xj.chinavolunteer.cn/app/org/list.php?mode=map">新疆自治区</a></li><li><a href="http://bt.zhiyuanyun.com/app/org/list.php?mode=map">兵团</a></li></ul></div>
+    
+    <div id="map_opp" style="display:none;">
+        <ul><li><a href="http://www.bv2008.cn/app/opp/list.php?mode=map">北京市</a></li><li><a href="http://tj.chinavolunteer.cn/app/opp/list.php?mode=map">天津市</a></li><li><a href="http://he.chinavolunteer.cn/app/opp/list.php?mode=map">河北省</a></li><li><a href="http://sx.chinavolunteer.cn/app/opp/list.php?mode=map">山西省</a></li><li><a href="http://nm.chinavolunteer.cn/app/opp/list.php?mode=map">内蒙古自治区</a></li><li><a href="http://ln.chinavolunteer.cn/app/opp/list.php?mode=map">辽宁省</a></li><li><a href="http://jl.chinavolunteer.cn/app/opp/list.php?mode=map">吉林省</a></li><li><a href="http://hl.chinavolunteer.cn/app/opp/list.php?mode=map">黑龙江省</a></li><li><a href="http://sh.chinavolunteer.cn/app/opp/list.php?mode=map">上海市</a></li><li><a href="http://js.chinavolunteer.cn/app/opp/list.php?mode=map">江苏省</a></li><li><a href="http://zj.chinavolunteer.cn/app/opp/list.php?mode=map">浙江省</a></li><li><a href="http://ah.chinavolunteer.cn/app/opp/list.php?mode=map">安徽省</a></li><li><a href="http://www.fjvs.org/app/opp/list.php?mode=map">福建省</a></li><li><a href="http://jx.chinavolunteer.cn/app/opp/list.php?mode=map">江西省</a></li><li><a href="http://sd.chinavolunteer.cn/app/opp/list.php?mode=map">山东省</a></li><li><a href="http://ha.chinavolunteer.cn/app/opp/list.php?mode=map">河南省</a></li><li><a href="http://hb.chinavolunteer.cn/app/opp/list.php?mode=map">湖北省</a></li><li><a href="http://hn.chinavolunteer.cn/app/opp/list.php?mode=map">湖南省</a></li><li><a href="http://gd.chinavolunteer.cn/app/opp/list.php?mode=map">广东省</a></li><li><a href="http://gx.chinavolunteer.cn/app/opp/list.php?mode=map">广西自治区</a></li><li><a href="http://hi.chinavolunteer.cn/app/opp/list.php?mode=map">海南省</a></li><li><a href="http://www.zycq.org/app/opp/list.php?mode=map">重庆市</a></li><li><a href="http://sc.chinavolunteer.cn/app/opp/list.php?mode=map">四川省</a></li><li><a href="http://www.zygz.org.cn/app/opp/list.php?mode=map">贵州省</a></li><li><a href="http://yn.chinavolunteer.cn/app/opp/list.php?mode=map">云南省</a></li><li><a href="http://xz.chinavolunteer.cn/app/opp/list.php?mode=map">西藏自治区</a></li><li><a href="http://sx.zhiyuanyun.com/app/opp/list.php?mode=map">陕西省</a></li><li><a href="http://gs.chinavolunteer.cn/app/opp/list.php?mode=map">甘肃省</a></li><li><a href="http://qh.chinavolunteer.cn/app/opp/list.php?mode=map">青海省</a></li><li><a href="http://nx.chinavolunteer.cn/app/opp/list.php?mode=map">宁夏自治区</a></li><li><a href="http://xj.chinavolunteer.cn/app/opp/list.php?mode=map">新疆自治区</a></li><li><a href="http://bt.zhiyuanyun.com/app/opp/list.php?mode=map">兵团</a></li></ul></div><style>
+        .tbox .tit span.l{padding:0;}
+    </style>
+    <div class="wrap clearfix m10">
+        <div class="l news_photo">
+            <div id="news_photo" style="width: 500px; height: 300px; position: relative; overflow: hidden;">
+                <ul style="width: 3500px; position: absolute; left: 0px; overflow: hidden; margin-left: 0px;"><li style="width: 500px; height: 300px; border: none; float: left;"><a href="http://www.chinavolunteer.cn/show/1048278.html" target="_blank"><img src="//s.zhiyuanyun.com/www.chinavolunteer.cn/cms/201901/18/5c41a6d2488b7.jpg" border="0" alt="习近平为志愿者点赞" style="width: 500px; height: 300px; border: none; float: left;"></a></li><li style="width: 500px; height: 300px; border: none; float: left;"><a href="https://www.chinavolunteer.cn/show/1057086.html" target="_blank"><img src="https://s.zhiyuanyun.com/www.chinavolunteer.cn/cms/202002/11/5e41ff79263f6.jpg" border="0" alt="习近平在北京市调研指导新型冠状病毒肺炎疫情防控工作" style="width: 500px; height: 300px; border: none; float: left;"></a></li><li style="width: 500px; height: 300px; border: none; float: left;"><a href="https://www.chinavolunteer.cn/show/1057329.html" target="_blank"><img src="https://s.zhiyuanyun.com/www.chinavolunteer.cn/cms/202002/13/5e44c3240ecb7.jpg" border="0" alt="社区战疫志愿者在行动" style="width: 500px; height: 300px; border: none; float: left;"></a></li><li style="width: 500px; height: 300px; border: none; float: left;"><a href="https://www.chinavolunteer.cn/show/1056627.html" target="_blank"><img src="https://s.zhiyuanyun.com/www.chinavolunteer.cn/cms/202002/13/5e44fe3dadfdc.jpg" border="0" alt="共青团组织发动8.5万名志愿者参与疫情防控工作" style="width: 500px; height: 300px; border: none; float: left;"></a></li><li style="width: 500px; height: 300px; border: none; float: left;"><a href="https://www.chinavolunteer.cn/show/1054639.html" target="_blank"><img src="https://s.zhiyuanyun.com/www.chinavolunteer.cn/cms/201910/23/5dafb439c3ddf.jpg" border="0" alt="国庆庆典背后，16万志愿者！让我们记住默默奉献的他们" style="width: 500px; height: 300px; border: none; float: left;"></a></li><li style="width: 500px; height: 300px; border: none; float: left;"><a href="https://www.chinavolunteer.cn/show/1054640.html" target="_blank"><img src="https://s.zhiyuanyun.com/www.chinavolunteer.cn/cms/201910/23/5dafeecae4932.jpg" border="0" alt="北大373名国庆系列活动志愿者：以青春奉献之我，献礼最爱的国" style="width: 500px; height: 300px; border: none; float: left;"></a></li><li style="width: 500px; height: 300px; border: none; float: left;"><a href="https://www.chinavolunteer.cn/show/1050805.html" target="_blank"><img src="https://s.zhiyuanyun.com/www.chinavolunteer.cn/cms/201910/23/5daff36e225a3.jpg" border="0" alt="“青春之花”志愿者扮靓北京世园会" style="width: 500px; height: 300px; border: none; float: left;"></a></li></ul>
+            <span class="sliderBtn" id="prevBtn" style="opacity: 0.6; display: none;"></span><span class="sliderBtn" id="nextBtn" style="opacity: 0.6; display: none;"></span><div id="altbox" style="width: 480px; height: 45px; line-height: 45px; opacity: 0.5; background: rgb(0, 0, 0); padding: 0px 10px; position: absolute; bottom: 0px; color: rgb(255, 255, 255); text-align: left; left: 0px;">习近平为志愿者点赞</div><div id="btnList" style="width: 480px; left: 0px;"><li class="roundness"><i style="float:left;text-indent:-9999px;">7</i></li><li class="roundness"><i style="float:left;text-indent:-9999px;">6</i></li><li class="roundness"><i style="float:left;text-indent:-9999px;">5</i></li><li class="roundness"><i style="float:left;text-indent:-9999px;">4</i></li><li class="roundness"><i style="float:left;text-indent:-9999px;">3</i></li><li class="roundness"><i style="float:left;text-indent:-9999px;">2</i></li><li class="roundness_act"><i style="float:left;text-indent:-9999px;">1</i></li></div></div>
+        </div>
+        <div class="r clearfix">
+            <div class="tbox9" style="width:488px;height:300px;overflow:hidden;">
+                <div class="tit clearfix"><span class="l" id="lm1_1"><a href="//www.chinavolunteer.cn/cate/zyzg_xxdt/" target="_blank">工作动态</a></span><!--<span id="lm1_2">地方动态</span>--></div>
+                <div class="tcon" style="height:268px;" id="lm1_tab1">
+                    <ul>
+                        <li class="top0"><a href="//www.chinavolunteer.cn/show/1058771.html" title="习近平讲故事：广大志愿者真诚奉献不辞辛劳" target="_blank"><font color="red"><b>习近平讲故事：广大志愿者真诚奉献不辞辛劳</b></font></a></li><li><a href="//www.chinavolunteer.cn/show/1059120.html" title="免费领取 | 为众人抱薪火者专属:5000万关爱保障金+1000万专项保险保障" target="_blank">免费领取 | 为众人抱薪火者专属:5000万关爱保障金+1000万专项保险保障</a></li><li><a href="//www.chinavolunteer.cn/show/1059056.html" title="民政部、腾讯基金会启动全国志愿者社区工作者等战疫关爱保障行动" target="_blank">民政部、腾讯基金会启动全国志愿者社区工作者等战疫关爱保障行动</a></li><li><a href="//www.chinavolunteer.cn/show/1059055.html" title="山东威海：举行“3·5”学雷锋纪念日 “精致威海·志愿同行”志愿服务行动新闻发布会 " target="_blank">山东威海：举行“3·5”学雷锋纪念日 “精致威海·志愿同行”志愿服务行动新闻发布会 </a></li><li><a href="//www.chinavolunteer.cn/show/1059054.html" title="山西省文明办 省民政厅 共青团山西省委 致全省广大志愿者和志愿服务组织的倡议书" target="_blank">山西省文明办 省民政厅 共青团山西省委 致全省广大志愿者和志愿服务组织的倡议书</a></li><li><a href="//www.chinavolunteer.cn/show/1059053.html" title="山西省民政厅关于进一步规范全省志愿服务力量参与疫情防控工作的通告" target="_blank">山西省民政厅关于进一步规范全省志愿服务力量参与疫情防控工作的通告</a></li><li><a href="//www.chinavolunteer.cn/show/1059052.html" title="广东省民政厅关于进一步发挥慈善力量社会工作志愿服务在统筹疫情防控和民政事业协调发展中积极作用的通知" target="_blank">广东省民政厅关于进一步发挥慈善力量社会工作志愿服务在统筹疫情防控和民政事业协调发展中积极作用的通知</a></li><li><a href="//www.chinavolunteer.cn/show/1058909.html" title="江苏苏州：志愿服务力量铭记志愿初心  冲锋战“疫”一线" target="_blank">江苏苏州：志愿服务力量铭记志愿初心  冲锋战“疫”一线</a></li><li><a href="//www.chinavolunteer.cn/show/1057086.html" title="习近平在北京市调研指导新型冠状病毒肺炎疫情防控工作" target="_blank">习近平在北京市调研指导新型冠状病毒肺炎疫情防控工作</a></li><li><a href="http://www.mca.gov.cn/article/xw/tt/202002/20200200024080.shtml" title="习近平主持召开中央全面依法治国委员会第三次会议强调 全面提高依法防控依法治理能力 为疫情防控提供有力法治保障 李克强栗战书王沪宁出席" target="_blank">习近平主持召开中央全面依法治国委员会第三次会议强调 全面提高依法防控依法治理能力 为疫情防控提供有力法治保障 李克强栗战书王沪宁出席</a></li>                </ul>
+                </div>
+                <div class="tcon" style="height: 268px; display: none;" id="lm1_tab2">
+                    <ul>
+                        <li><a href="//www.chinavolunteer.cn/show/1059055.html" title="山东威海：举行“3·5”学雷锋纪念日 “精致威海·志愿同行”志愿服务行动新闻发布会 " target="_blank">山东威海：举行“3·5”学雷锋纪念日 “精致威海·志愿同行”志愿服务行动新闻发布会 </a></li><li><a href="//www.chinavolunteer.cn/show/1059054.html" title="山西省文明办 省民政厅 共青团山西省委 致全省广大志愿者和志愿服务组织的倡议书" target="_blank">山西省文明办 省民政厅 共青团山西省委 致全省广大志愿者和志愿服务组织的倡议书</a></li><li><a href="//www.chinavolunteer.cn/show/1059053.html" title="山西省民政厅关于进一步规范全省志愿服务力量参与疫情防控工作的通告" target="_blank">山西省民政厅关于进一步规范全省志愿服务力量参与疫情防控工作的通告</a></li><li><a href="//www.chinavolunteer.cn/show/1059052.html" title="广东省民政厅关于进一步发挥慈善力量社会工作志愿服务在统筹疫情防控和民政事业协调发展中积极作用的通知" target="_blank">广东省民政厅关于进一步发挥慈善力量社会工作志愿服务在统筹疫情防控和民政事业协调发展中积极作用的通知</a></li><li><a href="//www.chinavolunteer.cn/show/1058909.html" title="江苏苏州：志愿服务力量铭记志愿初心  冲锋战“疫”一线" target="_blank">江苏苏州：志愿服务力量铭记志愿初心  冲锋战“疫”一线</a></li><li><a href="//www.chinavolunteer.cn/show/1058452.html" title="重庆：我市5.7万余名社会工作者、志愿者参与疫情防控工作" target="_blank">重庆：我市5.7万余名社会工作者、志愿者参与疫情防控工作</a></li><li><a href="//www.chinavolunteer.cn/show/1058450.html" title="浙江：关于面向援鄂医疗队员、新冠肺炎一线医务人员及其家属开展专项关爱服务的倡议书" target="_blank">浙江：关于面向援鄂医疗队员、新冠肺炎一线医务人员及其家属开展专项关爱服务的倡议书</a></li><li><a href="//www.chinavolunteer.cn/show/1058448.html" title="浙江上城：特别的爱给特别的你！上城区出台防控一线专职社区工作者和志愿者激励关爱举措" target="_blank">浙江上城：特别的爱给特别的你！上城区出台防控一线专职社区工作者和志愿者激励关爱举措</a></li><li><a href="//www.chinavolunteer.cn/show/1058332.html" title="湖北：武汉招募志愿者，10小时内报名人数突破1万" target="_blank">湖北：武汉招募志愿者，10小时内报名人数突破1万</a></li><li><a href="//www.chinavolunteer.cn/show/1058331.html" title="湖北：武汉专项招募志愿者，为居民提供代购代送等服务" target="_blank">湖北：武汉专项招募志愿者，为居民提供代购代送等服务</a></li>                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top2">
+        <div class="wrap top2bg">
+            <a href="https://www.chinavolunteer.cn/show/1032871.html" target="_blank"></a>
+            <a href="/app/org/list.php?mode=map" target="_blank"></a>
+            <a href="/app/user/query.php" target="_blank"></a>
+        </div>
+    </div>
+    <!-- <div class="wrap clearfix m10">
+        <div style="color:#fff;background:#4083d9;height:34px;line-height:34px;font-size:18px;font-family:微软雅黑;padding-left:20px;letter-spacing:2px;">
+            全国志愿服务信息系统
+        </div>
+        <div class="mbg">
+            
+            
+            <div class="l tmenu">
+                <div class="tit">志愿者</div>
+                <div class="con">
+                    <a href="javascript:void(0);" onclick="C.alert.opacty({'title':'请选择省份','width':'600','height':'300','div_tag':'#reg_province_vol'});">志愿者实名注册、查询</a><br>
+                    <a href="javascript:void(0);" onclick="C.alert.opacty({'title':'请选择省份','width':'600','height':'300','div_tag':'#reg_province_vol'});">参加志愿团体、项目</a>
+                </div>
+            </div>
+            
+            <div class="l tmenu">
+                <div class="tit">志愿团体</div>
+                <div class="con">
+                    <a href="javascript:void(0);" onclick="C.alert.opacty({'title':'请选择省份','width':'600','height':'300','div_tag':'#reg_province_org'});">志愿团体注册、审核</a><br>
+                    <a href="javascript:void(0);" onclick="C.alert.opacty({'title':'请选择省份','width':'600','height':'300','div_tag':'#reg_province_vol'});">招募志愿者、管理项目</a>
+                </div>
+            </div>
+            
+            <div class="l tmenu">
+                <div class="tit">志愿项目</div>
+                <div class="con">
+                    <a href="/app/opp/opp.edit.php" target="_blank">发布项目、招募志愿者</a><br>
+                    <a href="/app/opp/list.php" target="_blank">记录志愿服务时间</a>
+                </div>
+            </div>
+            
+            <div class="l tmenu">
+                <div class="tit">志愿地图</div>
+                <div class="con">
+                    <a href="javascript:void(0);" onclick="C.alert.opacty({'title':'请选择省份','width':'600','height':'250','div_tag':'#map_org'});">附近的志愿团体</a><br>
+                    <a href="javascript:void(0);" onclick="C.alert.opacty({'title':'请选择省份','width':'600','height':'250','div_tag':'#map_opp'});">附近的志愿项目</a>
+                </div>
+            </div>
+            
+            <div class="l tmenu">
+                <div class="tit">志愿服务证明</div>
+                <div class="con">
+                    <a href="/app/user/query.php?type=qcert" target="_blank">记录证明下载</a><br>
+            <a href="/app/user/query.php?type=qcert" target="_blank">记录证明查询</a>
+                </div>
+            </div>
+            
+            <div class="l tmenu">
+                <div class="tit"><a href="/app/user/login.php" target="_blank"><font style="color:#00F;">管理部门</font></a></div>
+                <div class="con">
+                    <a href="/app/user/login.php" target="_blank">管理部门登陆</a>
+                </div>
+            </div>
+            
+        </div>
+    </div> -->
+    
+    <div class="wrap clearfix m10">
+        <div class="l clearfix">
+            <div class="tbox9" style="width:495px;height:305px;overflow:hidden;">
+                <div class="tit clearfix"><span class="selected_no" id="lm2_1"><a href="//www.chinavolunteer.cn/cate/zyzg_mtbd/" target="_blank">媒体报道</a></span><span id="lm2_2" class="l"><a href="//www.chinavolunteer.cn/cate/zyzg_zcwj/" target="_blank">政策文件</a></span></div>
+                <div class="tcon" style="height: 268px; display: none;" id="lm2_tab1">
+                    <ul>
+                        <li><a href="//www.chinavolunteer.cn/show/1058921.html" title="湖北日报：5万人报名志愿者1.9万人审核上岗 生活的守望因他们更加温暖" target="_blank">湖北日报：5万人报名志愿者1.9万人审核上岗 生活的守望因他们更加温暖</a></li><li><a href="//www.chinavolunteer.cn/show/1058920.html" title="环球网：志愿者--每天收到三万多条信息，能救一个是一个" target="_blank">环球网：志愿者--每天收到三万多条信息，能救一个是一个</a></li><li><a href="//www.chinavolunteer.cn/show/1058919.html" title="西安日报：陕西西安3万余名志愿者助力疫情防控 用爱守护筑牢社区“防疫墙”" target="_blank">西安日报：陕西西安3万余名志愿者助力疫情防控 用爱守护筑牢社区“防疫墙”</a></li><li><a href="//www.chinavolunteer.cn/show/1058918.html" title="北京青年报：滞留武汉志愿者--多待一天多帮一点" target="_blank">北京青年报：滞留武汉志愿者--多待一天多帮一点</a></li><li><a href="//www.chinavolunteer.cn/show/1058917.html" title="新华社：“让医务人员无后顾之忧！”--重庆志愿者“守护”千余名一线医护人员家属见闻" target="_blank">新华社：“让医务人员无后顾之忧！”--重庆志愿者“守护”千余名一线医护人员家属见闻</a></li><li><a href="//www.chinavolunteer.cn/show/1058916.html" title="新华社：重庆近6000名志愿者精准守护一线医务人员家庭 " target="_blank">新华社：重庆近6000名志愿者精准守护一线医务人员家庭 </a></li><li><a href="//www.chinavolunteer.cn/show/1058915.html" title="人民网：“这是我们的战‘疫’” 系列特稿之八——致敬志愿者，战“疫”中一束温暖的光" target="_blank">人民网：“这是我们的战‘疫’” 系列特稿之八——致敬志愿者，战“疫”中一束温暖的光</a></li><li><a href="//www.chinavolunteer.cn/show/1058914.html" title="东湖评论：感恩与呵护是对志愿者最好的回馈" target="_blank">东湖评论：感恩与呵护是对志愿者最好的回馈</a></li><li><a href="//www.chinavolunteer.cn/show/1058913.html" title="兰州新闻网：防控疫情 我省3.2万名志愿者在行动 累计服务时长68.72万小时" target="_blank">兰州新闻网：防控疫情 我省3.2万名志愿者在行动 累计服务时长68.72万小时</a></li>                </ul>
+                </div>
+                <div class="tcon" style="height: 268px;" id="lm2_tab2">
+                    <ul>
+                        <li><a href="//www.chinavolunteer.cn/show/1038643.html" title="陆士桢：发展中国特色志愿服务，促进社会文明进步" target="_blank">陆士桢：发展中国特色志愿服务，促进社会文明进步</a></li><li><a href="//www.chinavolunteer.cn/show/1038642.html" title="肖金明：《志愿服务条例》的立法创新与多重效应" target="_blank">肖金明：《志愿服务条例》的立法创新与多重效应</a></li><li><a href="//www.chinavolunteer.cn/show/1038641.html" title="党秀云：为志愿服务保驾护航" target="_blank">党秀云：为志愿服务保驾护航</a></li><li><a href="//www.chinavolunteer.cn/show/1038640.html" title="李芳：准确把握《志愿服务条例》的立法重点" target="_blank">李芳：准确把握《志愿服务条例》的立法重点</a></li><li><a href="//www.chinavolunteer.cn/show/1038639.html" title="谭建光：强化志愿服务激励 促进诚信社会建设" target="_blank">谭建光：强化志愿服务激励 促进诚信社会建设</a></li><li><a href="//www.chinavolunteer.cn/show/1038638.html" title="赵津芳：以法制化手段规范和促进志愿服务组织发展" target="_blank">赵津芳：以法制化手段规范和促进志愿服务组织发展</a></li><li><a href="//www.chinavolunteer.cn/show/1038613.html" title="依法规范促进志愿服务发展——《志愿服务条例》解读" target="_blank">依法规范促进志愿服务发展——《志愿服务条例》解读</a></li><li><a href="//www.chinavolunteer.cn/show/1038612.html" title="国务院法制办负责人就《志愿服务条例》答记者问 " target="_blank">国务院法制办负责人就《志愿服务条例》答记者问 </a></li><li><a href="//www.chinavolunteer.cn/show/1038608.html" title="《志愿服务条例》" target="_blank"><font color="red"><b>《志愿服务条例》</b></font></a></li>                </ul>
+                </div>
+            </div>
+        </div>
+        <div class="r clearfix">
+            <div class="tbox9" style="width:495px;height:305px;overflow:hidden;">
+                <div class="tit clearfix"><span class="l" id="lm3_1"><a href="//www.chinavolunteer.cn/cate/zyzg_tzgg/" target="_blank">通知公告</a></span><!--<span id="lm3_2">调查征集</span>--></div>
+                <div class="tcon" style="height:268px;" id="lm3_tab1">
+                    <ul>
+                        <li><a href="//www.chinavolunteer.cn/show/1056500.html" title="民政部关于动员慈善力量依法有序参与新型冠状病毒感染的肺炎疫情防控工作的公告" target="_blank">民政部关于动员慈善力量依法有序参与新型冠状病毒感染的肺炎疫情防控工作的公告</a></li><li><a href="//www.chinavolunteer.cn/show/1054714.html" title="中央宣传部、中央文明办等14部门关于开展2019年全国宣传推选 学雷锋志愿服务“四个100”先进典型活动的通知" target="_blank">中央宣传部、中央文明办等14部门关于开展2019年全国宣传推选 学雷锋志愿服务“四个100”先进典型活动的通知</a></li><li><a href="//www.chinavolunteer.cn/show/1053299.html" title="民政部关于学习宣传贯彻习近平总书记志愿服务重要指示精神的通知" target="_blank">民政部关于学习宣传贯彻习近平总书记志愿服务重要指示精神的通知</a></li><li><a href="//www.chinavolunteer.cn/show/1051726.html" title="关于国家标准《志愿服务组织基本规范》+（征求意见稿）公开征求意见的通知" target="_blank">关于国家标准《志愿服务组织基本规范》+（征求意见稿）公开征求意见的通知</a></li><li><a href="//www.chinavolunteer.cn/show/1051641.html" title="民政部办公厅关于进一步加强脱贫攻坚志愿服务宣传展示工作的通知" target="_blank">民政部办公厅关于进一步加强脱贫攻坚志愿服务宣传展示工作的通知</a></li><li><a href="//www.chinavolunteer.cn/show/1050513.html" title="学习贯彻习近平总书记关于志愿服务重要指示精神主题征稿启事" target="_blank">学习贯彻习近平总书记关于志愿服务重要指示精神主题征稿启事</a></li><li><a href="//www.chinavolunteer.cn/show/1050512.html" title="民政部办公厅关于开展学习贯彻习近平总书记关于志愿服务重要指示精神 主题征文活动的通知" target="_blank">民政部办公厅关于开展学习贯彻习近平总书记关于志愿服务重要指示精神 主题征文活动的通知</a></li><li><a href="//www.chinavolunteer.cn/show/1048506.html" title="关于学习贯彻习近平总书记有关志愿服务  重要指示精神的通知" target="_blank">关于学习贯彻习近平总书记有关志愿服务  重要指示精神的通知</a></li><li><a href="//www.chinavolunteer.cn/show/1046740.html" title="民政部办公厅关于组织开展《志愿服务条例》实施一周年宣传活动的通知" target="_blank">民政部办公厅关于组织开展《志愿服务条例》实施一周年宣传活动的通知</a></li>                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <div class="mid1 m10">
+        <div class="wrap">
+            <ul class="clearfix"><li><a href="http://mzzt.mca.gov.cn/article/zt_2019tpgj/" target="_blank"><img src="https://s.zhiyuanyun.com/www.chinavolunteer.cn/cms/201911/12/5dca23d3d77f5.jpg" border="0" alt="志愿服务"></a></li><li><a href="http://www.chinavolunteer.cn/show/1032293.html" target="_blank"><img src="//s.zhiyuanyun.com/www.chinavolunteer.cn/cms/201612/01/583ffd7b5e285.jpg" border="0" alt="中国志愿APP"></a></li></ul>
+        </div>
+    </div> -->
+    <!--
+    <div class="wrap">
+        <div class="nbox m10" style="height:79px;overflow:hidden;*margin:5px 5px 5px 0;">
+            <div class="ncon">
+                <ul class="clearfix"><li><a href="/show/1017512.html" target="_blank"><img src="//s.zhiyuanyun.com/www.bv2008.cn/cms/201510/10/5618f60150825.gif" border="0" alt="志愿家庭"></a></li><li><a href="/app/opp/opps.shts.php" target="_blank"><img src="//s.zhiyuanyun.com/www.bv2008.cn/cms/201510/10/5618f60c5c289.gif" border="0" alt="守护天使项目"></a></li><li><a href="http://sdza.bv2008.cn/" target="_blank"><img src="//s.zhiyuanyun.com/www.bv2008.cn/cms/201601/11/5693527e84676.jpg" border="0" alt="治安志愿者"></a></li><li><a href="http://sdsq.bv2008.cn/" target="_blank"><img src="//s.zhiyuanyun.com/www.bv2008.cn/cms/201601/11/569363d913a22.jpg" border="0" alt="社区志愿者"></a></li><li><a href="http://ww1.bv2008.cn/" target="_blank"><img src="//s.zhiyuanyun.com/www.bv2008.cn/news/img/zhuanti5.jpg" border="0" alt="6"></a></li><li><a href="http://www.bjyouth.gov.cn/special/2010expo/" target="_blank"><img src="//s.zhiyuanyun.com/www.bv2008.cn/news/img/zhuanti7.jpg" border="0" alt="5"></a></li><li><a href="http://ww2.bv2008.cn/zhuanti/201008scgb/" target="_blank"><img src="//s.zhiyuanyun.com/www.bv2008.cn/news/img/zhuanti8.jpg" border="0" alt="4"></a></li><li><a href="http://ww2.bv2008.cn/zhuanti/201008bocscf/" target="_blank"><img src="//s.zhiyuanyun.com/www.bv2008.cn/news/img/zhuanti3.jpg" border="0" alt="2"></a></li><li><a href="http://ww2.bv2008.cn/zhuanti/201008isme/" target="_blank"><img src="//s.zhiyuanyun.com/www.bv2008.cn/news/img/zhuanti6.jpg" border="0" alt="3"></a></li><li><a href="http://220.194.54.40/zhuanti/lthd/" target="_blank"><img src="//s.zhiyuanyun.com/www.bv2008.cn/news/img/bluesky.jpg" border="0" alt="1"></a></li></ul>
+            </div>
+        </div>
+    </div>
+    -->
+    <div class="wrap clearfix m10 tj" id="tj">
+        <div class="l tab">
+            <a id="tj_tab1" href="javascript:void(0);" class="cur"></a>
+            <a id="tj_tab2" href="javascript:void(0);" class="ns2"></a>
+        </div>
+        <div class="l con">
+            <div id="tj_con1" class="clearfix" style="">
+                            <div class="l" style="width:600px;height:450px;text-align:center;vertical-align:middle;position:relative;">
+                    <img id="map" src="//css.zhiyuanyun.com/zyzg.zyy/map/西藏.png" width="550" height="430" usemap="#Map">
+                    <map name="Map">
+                        <area shape="rect" coords="457,16,521,42" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('黑龙江');">
+                        <area shape="rect" coords="466,69,524,95" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('吉林');">
+                        <area shape="rect" coords="460,110,520,133" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('辽宁');">
+                        <area shape="rect" coords="326,81,393,104" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('内蒙古');">
+                        <area shape="rect" coords="388,126,442,150" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('北京');">
+                        <area shape="rect" coords="426,157,472,179" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('天津');">
+                        <area shape="rect" coords="403,184,454,204" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('山东');">
+                        <area shape="rect" coords="428,209,480,228" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('江苏');">
+                        <area shape="rect" coords="450,233,503,256" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('上海');">
+                        <area shape="rect" coords="440,269,496,293" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('浙江');">
+                        <area shape="rect" coords="418,309,472,332" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('福建');">
+                        <area shape="rect" coords="347,331,402,354" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('广东');">
+                        <area shape="rect" coords="285,384,339,410" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('海南');">
+                        <area shape="rect" coords="267,345,327,370" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('广西');">
+                        <area shape="rect" coords="310,294,369,318" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('湖南');">
+                        <area shape="rect" coords="387,276,438,298" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('江西');">
+                        <area shape="rect" coords="325,253,383,274" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('湖北');">
+                        <area shape="rect" coords="373,228,422,249" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('安徽');">
+                        <area shape="rect" coords="319,192,379,216" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('河南');">
+                        <area shape="rect" coords="306,153,362,178" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('山西');">
+                        <area shape="rect" coords="317,122,377,144" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('河北');">
+                        <area shape="rect" coords="183,326,243,349" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('云南');">
+                        <area shape="rect" coords="240,301,296,324" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('贵州');">
+                        <area shape="rect" coords="252,261,314,283" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('重庆');">
+                        <area shape="rect" coords="261,220,315,240" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('陕西');">
+                        <area shape="rect" coords="242,175,302,199" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('宁夏');">
+                        <area shape="rect" coords="182,243,243,266" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('四川');">
+                        <area shape="rect" coords="154,190,212,212" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('青海');">
+                        <area shape="rect" coords="173,143,233,167" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('甘肃');">
+                        <area shape="rect" coords="65,233,123,259" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('西藏');">
+                        <area shape="rect" coords="76,120,136,144" href="javascript:void(0);" onmouseout="show_area_all();" onmouseover="show_area('新疆');">
+                    </map>
+                </div>
+                <div class="r map_right">
+                                            <ul class="area_list" area="" id="all" style="display: block;">
+                            <li class="tit">全国志愿服务数据统计</li>
+                            <li style="height:auto;">
+                                <table class="table1">
+                                    <!--<tr><td class="l1">志愿者总数</td><td class="l2">0</td></tr>-->
+                                    <tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1.46亿</td></tr>
+                                    <tr><td class="l1">志愿团体总数</td><td class="l2">69.97万</td></tr>
+                                    <tr><td class="l1">志愿项目总数</td><td class="l2">350.24万</td></tr>
+                                    <tr><td class="l1">服务时间总数</td><td class="l2">19.44亿</td></tr>
+                                    <tr><td class="l1">记录时间人数</td><td class="l2">3045万</td></tr>
+                                </tbody></table>
+                            </li>
+                        </ul>
+                    <ul area="北京市" style="display:none;" class="area_list"><li class="tit">北京志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">441.68万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">7.72万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">37.96万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">4.35亿</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">202.7万</td></tr></tbody></table></li></ul><ul area="海南省" style="display:none;" class="area_list"><li class="tit">海南志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">100.81万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">7238</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">8.02万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">2378.55万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">42.11万</td></tr></tbody></table></li></ul><ul area="河北省" style="display:none;" class="area_list"><li class="tit">河北志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">627.5万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">3.98万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">15.34万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">6942.01万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">125.01万</td></tr></tbody></table></li></ul><ul area="新疆" style="display: none;" class="area_list"><li class="tit">新疆志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">163.94万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">4419</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">1.15万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">223.55万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">12.35万</td></tr></tbody></table></li></ul><ul area="贵州省" style="display:none;" class="area_list"><li class="tit">贵州志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">402.46万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">1.97万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">9.43万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">7001.26万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">94.15万</td></tr></tbody></table></li></ul><ul area="辽宁省" style="display:none;" class="area_list"><li class="tit">辽宁志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">347.68万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">1.14万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">1.16万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">333.88万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">10.91万</td></tr></tbody></table></li></ul><ul area="吉林省" style="display:none;" class="area_list"><li class="tit">吉林志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">211.11万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">1.18万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">1.7万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">289.17万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">12.84万</td></tr></tbody></table></li></ul><ul area="甘肃省" style="display:none;" class="area_list"><li class="tit">甘肃志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">209.64万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">1.63万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">5.51万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">1766.93万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">68.3万</td></tr></tbody></table></li></ul><ul area="天津市" style="display:none;" class="area_list"><li class="tit">天津志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">202.4万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">1276</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">2755</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">1260.41万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">6.83万</td></tr></tbody></table></li></ul><ul area="山西省" style="display:none;" class="area_list"><li class="tit">山西志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">315.4万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">2.7万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">3.14万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">889.7万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">30.49万</td></tr></tbody></table></li></ul><ul area="内蒙古" style="display:none;" class="area_list"><li class="tit">内蒙古志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">221.55万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">1.44万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">5.16万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">2453.08万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">48.21万</td></tr></tbody></table></li></ul><ul area="黑龙江省" style="display:none;" class="area_list"><li class="tit">黑龙江志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">337.87万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">394</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">1183</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">39.63万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">9558</td></tr></tbody></table></li></ul><ul area="上海市" style="display:none;" class="area_list"><li class="tit">上海志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">445.54万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">2.46万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">31.15万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">3.8亿</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">288.28万</td></tr></tbody></table></li></ul><ul area="江苏省" style="display:none;" class="area_list"><li class="tit">江苏志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">321.12万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">84</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">380</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">3.63万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">2247</td></tr></tbody></table></li></ul><ul area="浙江省" style="display:none;" class="area_list"><li class="tit">浙江志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">948.69万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">3824</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">4.58万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">615.56万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">8.08万</td></tr></tbody></table></li></ul><ul area="安徽省" style="display:none;" class="area_list"><li class="tit">安徽志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">986.26万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">2.63万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">16.62万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">4372.22万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">226.58万</td></tr></tbody></table></li></ul><ul area="福建省" style="display:none;" class="area_list"><li class="tit">福建志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">489.69万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">5.4万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">49.22万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">1.08亿</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">183.19万</td></tr></tbody></table></li></ul><ul area="江西省" style="display:none;" class="area_list"><li class="tit">江西志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">406.5万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">2329</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">3.15万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">3429.63万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">6.48万</td></tr></tbody></table></li></ul><ul area="山东省" style="display:none;" class="area_list"><li class="tit">山东志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1165.02万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">6.4万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">17.04万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">1.03亿</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">313.55万</td></tr></tbody></table></li></ul><ul area="河南省" style="display:none;" class="area_list"><li class="tit">河南志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1215.49万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">5.25万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">45.29万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">1.62亿</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">308.99万</td></tr></tbody></table></li></ul><ul area="湖北省" style="display:none;" class="area_list"><li class="tit">湖北志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">776.45万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">3.28万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">10.88万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">2758.31万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">142.63万</td></tr></tbody></table></li></ul><ul area="湖南省" style="display:none;" class="area_list"><li class="tit">湖南志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">144.65万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">3151</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">3626</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">46.35万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">2.24万</td></tr></tbody></table></li></ul><ul area="广东省" style="display:none;" class="area_list"><li class="tit">广东志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1037.19万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">5.89万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">11.57万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">3622.82万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">47.55万</td></tr></tbody></table></li></ul><ul area="广西" style="display:none;" class="area_list"><li class="tit">广西志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">649.02万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">2.64万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">8.43万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">3754.91万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">249.42万</td></tr></tbody></table></li></ul><ul area="重庆市" style="display:none;" class="area_list"><li class="tit">重庆志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">591.43万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">3.8万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">14.65万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">7708.68万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">134.29万</td></tr></tbody></table></li></ul><ul area="四川省" style="display:none;" class="area_list"><li class="tit">四川志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">821.08万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">3.29万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">7.81万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">2299.07万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">142.62万</td></tr></tbody></table></li></ul><ul area="云南省" style="display:none;" class="area_list"><li class="tit">云南志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">411.18万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">1.77万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">15.51万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">1.33亿</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">169.53万</td></tr></tbody></table></li></ul><ul area="西藏" style="display: none;" class="area_list"><li class="tit">西藏志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">8.07万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">1423</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">2191</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">86.56万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">2万</td></tr></tbody></table></li></ul><ul area="陕西省" style="display:none;" class="area_list"><li class="tit">陕西志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">276.59万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">2.32万</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">16.17万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">7040.48万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">115.77万</td></tr></tbody></table></li></ul><ul area="青海省" style="display:none;" class="area_list"><li class="tit">青海志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">25.6万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">1668</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">999</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">17.97万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">5065</td></tr></tbody></table></li></ul><ul area="宁夏" style="display:none;" class="area_list"><li class="tit">宁夏志愿服务数据统计</li><li style="height:auto;"><table class="table1"><tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">103.2万</td></tr><tr><td class="l1">志愿团体总数</td><td class="l2">5018</td></tr><tr><td class="l1">志愿项目总数</td><td class="l2">8.48万</td></tr><tr><td class="l1">服务时间总数</td><td class="l2">3091.02万</td></tr><tr><td class="l1">记录时间人数</td><td class="l2">48.2万</td></tr></tbody></table></li></ul>                <ul class="area_list" area="" id="nodata" style="display:none;">
+                        <li class="tit"></li>
+                        <li style="height:auto;">
+                            <table class="table1">
+                                <tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">暂无数据</td></tr>
+                                <tr><td class="l1">志愿团体总数</td><td class="l2">暂无数据</td></tr>
+                                <tr><td class="l1">志愿项目总数</td><td class="l2">暂无数据</td></tr>
+                                <tr><td class="l1">服务时间总数</td><td class="l2">暂无数据</td></tr>
+                                <tr><td class="l1">记录时间人数</td><td class="l2">暂无数据</td></tr>
+                            </tbody></table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="tj_con2" style="display: none;">
+                            <div class="l hy_left">
+                                <a href="javascript:void(0);" onmouseover="show_cate_vol('0');" onmouseout="show_cate_vol_all();"></a>
+                            <a href="javascript:void(0);" onmouseover="show_cate_vol('1');" onmouseout="show_cate_vol_all();"></a>
+                            <a href="javascript:void(0);" onmouseover="show_cate_vol('2');" onmouseout="show_cate_vol_all();"></a>
+                            <a href="javascript:void(0);" onmouseover="show_cate_vol('3');" onmouseout="show_cate_vol_all();"></a>
+                            <a href="javascript:void(0);" onmouseover="show_cate_vol('4');" onmouseout="show_cate_vol_all();"></a>
+                            <a href="javascript:void(0);" onmouseover="show_cate_vol('5');" onmouseout="show_cate_vol_all();"></a>
+                            <a href="javascript:void(0);" onmouseover="show_cate_vol('6');" onmouseout="show_cate_vol_all();"></a>
+                            <a href="javascript:void(0);" onmouseover="show_cate_vol('7');" onmouseout="show_cate_vol_all();"></a>
+                            <a href="javascript:void(0);" onmouseover="show_cate_vol('8');" onmouseout="show_cate_vol_all();"></a>
+                            
+                </div>
+                <div class="r map_right">
+                    <ul class="area_list2" area="" id="cate_vol_all">
+                        <li class="tit">全部志愿者</li>
+                        <li style="height:auto;">
+                            <table class="table1">
+                                <tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1.26亿</td></tr>
+                                <tr><td class="l1">志愿团体总数</td><td class="l2">64.4万</td></tr>
+                                <tr><td class="l1">志愿项目总数</td><td class="l2">268.06万</td></tr>
+                                <tr><td class="l1">服务时间总数</td><td class="l2">15.1亿</td></tr>
+                                <tr><td class="l1">记录时间人数</td><td class="l2">2058.89万</td></tr>
+                            </tbody></table>
+                        </li>
+                    </ul>
+                                    <ul class="area_list2" area="" id="cate_vol_0" style="display:none;">
+                        <li class="tit">社区志愿者</li>
+                        <li style="height:auto;">
+                            <table class="table1">
+                                <tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1.26亿</td></tr>
+                                <tr><td class="l1">志愿团体总数</td><td class="l2">64.4万</td></tr>
+                                <tr><td class="l1">志愿项目总数</td><td class="l2">268.06万</td></tr>
+                                <tr><td class="l1">服务时间总数</td><td class="l2">15.1亿</td></tr>
+                                <tr><td class="l1">记录时间人数</td><td class="l2">2058.89万</td></tr>
+                            </tbody></table>
+                        </li>
+                    </ul>
+                                    <ul class="area_list2" area="" id="cate_vol_1" style="display:none;">
+                        <li class="tit">青年志愿者</li>
+                        <li style="height:auto;">
+                            <table class="table1">
+                                <tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1.26亿</td></tr>
+                                <tr><td class="l1">志愿团体总数</td><td class="l2">64.4万</td></tr>
+                                <tr><td class="l1">志愿项目总数</td><td class="l2">268.06万</td></tr>
+                                <tr><td class="l1">服务时间总数</td><td class="l2">15.1亿</td></tr>
+                                <tr><td class="l1">记录时间人数</td><td class="l2">2058.89万</td></tr>
+                            </tbody></table>
+                        </li>
+                    </ul>
+                                    <ul class="area_list2" area="" id="cate_vol_2" style="display:none;">
+                        <li class="tit">文明志愿者</li>
+                        <li style="height:auto;">
+                            <table class="table1">
+                                <tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1.26亿</td></tr>
+                                <tr><td class="l1">志愿团体总数</td><td class="l2">64.4万</td></tr>
+                                <tr><td class="l1">志愿项目总数</td><td class="l2">268.06万</td></tr>
+                                <tr><td class="l1">服务时间总数</td><td class="l2">15.1亿</td></tr>
+                                <tr><td class="l1">记录时间人数</td><td class="l2">2058.89万</td></tr>
+                            </tbody></table>
+                        </li>
+                    </ul>
+                                    <ul class="area_list2" area="" id="cate_vol_3" style="display:none;">
+                        <li class="tit">文化志愿者</li>
+                        <li style="height:auto;">
+                            <table class="table1">
+                                <tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1.26亿</td></tr>
+                                <tr><td class="l1">志愿团体总数</td><td class="l2">64.4万</td></tr>
+                                <tr><td class="l1">志愿项目总数</td><td class="l2">268.06万</td></tr>
+                                <tr><td class="l1">服务时间总数</td><td class="l2">15.1亿</td></tr>
+                                <tr><td class="l1">记录时间人数</td><td class="l2">2058.89万</td></tr>
+                            </tbody></table>
+                        </li>
+                    </ul>
+                                    <ul class="area_list2" area="" id="cate_vol_4" style="display:none;">
+                        <li class="tit">医疗志愿者</li>
+                        <li style="height:auto;">
+                            <table class="table1">
+                                <tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1.26亿</td></tr>
+                                <tr><td class="l1">志愿团体总数</td><td class="l2">64.4万</td></tr>
+                                <tr><td class="l1">志愿项目总数</td><td class="l2">268.06万</td></tr>
+                                <tr><td class="l1">服务时间总数</td><td class="l2">15.1亿</td></tr>
+                                <tr><td class="l1">记录时间人数</td><td class="l2">2058.89万</td></tr>
+                            </tbody></table>
+                        </li>
+                    </ul>
+                                    <ul class="area_list2" area="" id="cate_vol_5" style="display:none;">
+                        <li class="tit">教育志愿者</li>
+                        <li style="height:auto;">
+                            <table class="table1">
+                                <tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1.26亿</td></tr>
+                                <tr><td class="l1">志愿团体总数</td><td class="l2">64.4万</td></tr>
+                                <tr><td class="l1">志愿项目总数</td><td class="l2">268.06万</td></tr>
+                                <tr><td class="l1">服务时间总数</td><td class="l2">15.1亿</td></tr>
+                                <tr><td class="l1">记录时间人数</td><td class="l2">2058.89万</td></tr>
+                            </tbody></table>
+                        </li>
+                    </ul>
+                                    <ul class="area_list2" area="" id="cate_vol_6" style="display:none;">
+                        <li class="tit">助残志愿者</li>
+                        <li style="height:auto;">
+                            <table class="table1">
+                                <tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1.26亿</td></tr>
+                                <tr><td class="l1">志愿团体总数</td><td class="l2">64.4万</td></tr>
+                                <tr><td class="l1">志愿项目总数</td><td class="l2">268.06万</td></tr>
+                                <tr><td class="l1">服务时间总数</td><td class="l2">15.1亿</td></tr>
+                                <tr><td class="l1">记录时间人数</td><td class="l2">2058.89万</td></tr>
+                            </tbody></table>
+                        </li>
+                    </ul>
+                                    <ul class="area_list2" area="" id="cate_vol_7" style="display:none;">
+                        <li class="tit">巾帼志愿者</li>
+                        <li style="height:auto;">
+                            <table class="table1">
+                                <tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1.26亿</td></tr>
+                                <tr><td class="l1">志愿团体总数</td><td class="l2">64.4万</td></tr>
+                                <tr><td class="l1">志愿项目总数</td><td class="l2">268.06万</td></tr>
+                                <tr><td class="l1">服务时间总数</td><td class="l2">15.1亿</td></tr>
+                                <tr><td class="l1">记录时间人数</td><td class="l2">2058.89万</td></tr>
+                            </tbody></table>
+                        </li>
+                    </ul>
+                                    <ul class="area_list2" area="" id="cate_vol_8" style="display:none;">
+                        <li class="tit">消防志愿者</li>
+                        <li style="height:auto;">
+                            <table class="table1">
+                                <tbody><tr><td class="l1">实名志愿者总数</td><td class="l2">1.26亿</td></tr>
+                                <tr><td class="l1">志愿团体总数</td><td class="l2">64.4万</td></tr>
+                                <tr><td class="l1">志愿项目总数</td><td class="l2">268.06万</td></tr>
+                                <tr><td class="l1">服务时间总数</td><td class="l2">15.1亿</td></tr>
+                                <tr><td class="l1">记录时间人数</td><td class="l2">2058.89万</td></tr>
+                            </tbody></table>
+                        </li>
+                    </ul>
+                                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function show_cate_vol_all(){
+            $('.area_lis2').css('display','none');
+            $('#cate_vol_all').css('display','block');
+        }
+        function show_cate_vol(idname){
+            $('.area_lis2').css('display','none');
+            $('#cate_vol_'+idname).css('display','block');
+        }
+    </script>
+    
+    
+
+    
+    <div class="wrap m10 clearfix">
+      <div class="tab1" style="border-bottom:0;margin:0 0 0 2px;width:996px;"><a href="javascript:void(0);" style="font-size:14px;" $style="" id="linkbtn0" class="current">友情链接</a></div><div class="link_tab" style="border-top:0px;"><div style="margin:0 10px 10px 10px;"><div style="height:10px;"></div><div id="linktab0"><a href="http://www.wenming.cn" target="_blank" style="font-size:14px;">中国文明网</a><a href="http://www.mca.gov.cn" target="_blank" style="font-size:14px;">民政部</a><a href="http://www.chinanpo.gov.cn/" target="_blank" style="font-size:14px;">中国社会组织</a><a href="http://www.chinasocialwork.cn/" target="_blank" style="font-size:14px;">中国社会工作网</a><a href="http://www.cvf.org.cn" target="_blank" style="font-size:14px;">中国志愿服务联合会</a><a href="http://ly.chinavolunteer.cn/" target="_blank" style="font-size:14px;">中国旅游志愿者</a><a href="http://www.zgzyz.org.cn/" target="_blank" style="font-size:14px;">中国青年志愿者</a><a href="http://www.wyzyz.org/" target="_blank" style="font-size:14px;">中国文艺志愿者</a></div></div></div></div>
+    <div class="footer clearfix">
+        <div class="wrap m10">ICP备案编号：<a href="//www.beian.miit.gov.cn" target="_blank">京ICP备13012430号-7</a> 版权所有：<a href="//www.mca.gov.cn" target="_blank">中华人民共和国民政部</a><br>
+      <a href="//www.chinavolunteer.cn/show/1040107.html">联系我们</a> 技术支持：<a href="//www.cvf.org.cn" target="_blank">中国志愿服务联合会</a> <a href="//www.zhiyuanyun.com" target="_blank">志愿云</a></div>
+    </div>
+    <!--baidu tongji-->
+    <script>
+        $(document).ready(function () {
+            function checkLogin(){
+                if(!($("#userSpan").text().length <=0) ){
+                    $("#checkL").hide();
+                }
+            }
+            checkLogin();
+        })
+    </script>
+
+    </body>
+</html>

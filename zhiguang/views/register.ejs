@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+  </head>
+  <style>
+
+  </style>
+    <body>
+        <body>
+
+            <div>
+                <label name="acct" />手机:</label><input type="text" name="acct" id="acct" /><br />
+                <label name="mail" />邮箱:</label><input type="text" name="mail" id="mail" /><br />
+                <label name="pwd" />密码:</label><input type="password" name="pwd" id="pwd" /><br />
+                <button id='adminLogin'>登录</button>
+            </div>
+        </body>
+
+        <script>
+            $(document).ready(function () {
+                    $("#adminLogin").on("click", function(){
+                    var data = {};
+                    var acct = $("#acct").val();
+                    var pwd = $("#pwd").val();
+                    var mail = $("#mail").val();
+                    data.acct = acct;
+                    data.pwd = pwd;
+                    data.mail = mail;
+
+                    $.ajax({
+                    type : "POST",
+                    url : "/userRegister",
+                    data : data,
+                    success : function(result) {
+                        if(result.code === '001'){
+                            alert("注册成功 你将以 " + acct + " 的身份进入主页");
+                            window.location.href = "http://localhost:3000/";
+                        }
+                    },
+                    error : function(e){
+                        
+                    }
+                });
+                });
+
+            });
+        </script>
+
+ 
+    </body>
+</html>

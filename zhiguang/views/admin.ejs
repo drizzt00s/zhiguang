@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#adminLogin").on("click", function(){
+                var data = {};
+                var acct = $("#acct").val();
+                var pwd = $("#pwd").val();
+                data.acct = acct;
+                data.pwd = pwd;
+               
+                $.ajax({
+                type : "POST",
+                url : "/adminLogin",
+                data : data,
+                success : function(result) {
+                    var code = result.code;
+                    if(code === 0){
+                        alert("账号不存在");
+                    } else if(code === 1){
+                        alert("密码错误");
+                    } else if(code === 2){
+                        alert("登录成功");
+                        window.location.href = "http://localhost:3000/adminPanel";
+                    }
+                },
+                error : function(e){
+                    
+                }
+            });
+            });
+        });
+    </script>
+  </head>
+  <style>
+
+  </style>
+    <body>
+        <div id='adminLoginPart' class="adminLoginPart">
+            <label name="acct" />管理员账号:</label><input type="text" name="acct" id="acct" /><br />
+            <label name="pwd" />密码:</label><input type="password" name="pwd" id="pwd" /><br />
+            <button id='adminLogin'>登录</button>
+        </div>
+    </body>
+</html>

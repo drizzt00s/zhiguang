@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+   
+  </head>
+  <style>
+
+  </style>
+    <body>
+        <div id='userInfo' class="userInfo">
+            <div>
+                <div>您的实名认证状态:<span id="idChecked"><%= certificated %></span></div>
+                <div>电子邮箱:<span id="mail"><%= mail %></span></div>
+                <div><span>出生日期:</span><span id='birthday'><%= birthday %></span></div>
+
+
+
+                <div>个人现照:<span id='pic' class="check1"><img src="<%= photo %>" /></span></div>
+                <div>身份证照片正面:<span id="idPhoto1" class="check1"><img src="<%= idPhoto1 %>" /></span></div> 
+                <div>身份证照片反面:<span id="idPhoto2" class="check1"><img src="<%= idPhoto2 %>" /></span></div>
+            </div>
+
+           
+        </div>
+
+
+        <div>
+            <form action="/userInfoComplete"id="userComplete" enctype="multipart/form-data" method="post">
+                <label name='idCard1'>上传身份证正面</label><input type="file" name="idCard1" /><br />
+                <label name='idCard2'>上传身份证反面</label><input type="file" name="idCard2" /><br />
+                <label name='photo'>上传个人照</label><input type="file" name="photo" /><br />
+                <button id="completeUserInfo">提交</button>
+            </form>
+        </div>
+
+<script>
+$(document).ready(function(){
+
+    $("#completeUserInfo").on("click", function(){
+        document.getElementById("userComplete").submit();
+        alert("提交成功");
+       
+
+
+    });
+
+
+})
+</script>
+
+    </body>
+</html>
