@@ -49,6 +49,7 @@ var initProjectRouter = require('./routes/initProjectRouter');
 var startProjectRouter = require('./routes/startProjectRouter');
 var getProjectsRouter = require('./routes/getProjectsRouter');
 var U_joinProjectsRouter = require('./routes/U_joinProjectsRouter');
+var initDonateRouter = require('./routes/initDonateRouter');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -70,6 +71,9 @@ app.use("/initProject", initProjectRouter);
 app.use("/startProject", startProjectRouter);
 app.use("/getProjects", getProjectsRouter);
 app.use("/U_joinProjects", U_joinProjectsRouter);
+app.use("/initDonate", initDonateRouter);
+
+
 
 
 
