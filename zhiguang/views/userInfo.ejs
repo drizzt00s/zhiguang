@@ -10,7 +10,7 @@
     <body>
         <div id='userInfo' class="userInfo">
             <div>
-                <div>您的实名认证状态:<span id="idChecked"><%= certificated %></span></div>
+                <div>您的实名认证状态:<span id="idChecked"><%= certificate_status %></span></div>
                 <div>电子邮箱:<span id="mail"><%= mail %></span></div>
                 <div><span>出生日期:</span><span id='birthday'><%= birthday %></span></div>
 
@@ -41,9 +41,6 @@ $(document).ready(function(){
     $("#completeUserInfo").on("click", function(){
         document.getElementById("userComplete").submit();
         alert("提交成功");
-       
-
-
     });
 
 

@@ -49,14 +49,16 @@ router.get('/', function(req, res, next) {
             var idPhoto1 = result.id_photo1;
             var idPhoto2 = result.id_photo2;
             var certificated = result.certificated;
+            var certificate_status = result.certificate_status;
+            
 
-            if(certificated === 0 || certificated === null){
-                //未实名认证
-                 certificated = "身份待管理员审核,提交身份证正反面照和个人照片有助于实名认证";
-            } else if(certificated === 1){
-                //已实名认证
-                 certificated = "已实名认证";
-            }
+            // if(certificated === 0 || certificated === null){
+            //     //未实名认证
+            //      certificated = "身份待管理员审核,提交身份证正反面照和个人照片有助于实名认证";
+            // } else if(certificated === 1){
+            //     //已实名认证
+            //      certificated = "已实名认证";
+            // }
             
             if(!idPhoto1){
                 idPhoto1 = "未上传";
@@ -86,7 +88,7 @@ router.get('/', function(req, res, next) {
                 birthday = "未填写";
             }
             res.render('userInfo',{
-                certificated:certificated,
+                certificate_status:certificate_status,
                 idPhoto1:idPhoto1,
                 idPhoto2:idPhoto2,
                 mail:mail,

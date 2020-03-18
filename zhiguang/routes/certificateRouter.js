@@ -16,35 +16,23 @@ Db.prototype.conntect = function(){
     return connection;
 };
 
-Db.prototype.crypto = function(){
-    var crypto = require('crypto');
-    return crypto.createHash('md5');
-};
-
 router.post("/", function(req, res, next){
-    var acct = req.body.acct;//手机
-    var pwd = req.body.pwd;
-    var mail = req.body.mail;
-
-
-    var md5 = new Db().crypto();
+    var acct = req.body.acct;
     var connection = new Db().conntect();
     connection.connect();
-    var sql = 'INSERT INTO user (acct,pwd,mail,certificate_status) VALUES(?,?,?,?)';
-    var pass = md5.update(pwd).digest('hex');
-    var sqlValue = [acct,pass,mail,"未实名认证"];
+    var sql = "UPDATE user SET certificate_status" + "=?" + " WHERE acct" + "=?";
+    var sqlValue = ["已实名认证",acct];
     connection.query(sql,sqlValue,function(err, result){
         if(err){
             throw err;
         }
         var data = {
-            code:"001"
+            code:1
         };
-        console.log("insert ok");
-        var userData = {"user_acct":acct};
-        req.session.userData = userData;
         res.send(data);
     });
+
 });
+
 
 module.exports = router;

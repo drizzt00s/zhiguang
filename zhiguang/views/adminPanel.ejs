@@ -13,14 +13,14 @@
             您好:
             <span id="showAdmin"><%= adminName %></span>
             <ul>
-                <li v-for='user in users'>
+                <li v-for='user in users' class='eachUser'>
                     <div><span>账号:</span><span class='userAcct'>{{user.acct}}</span></div>
                     <div><span>邮件:</span><span>{{user.mail}}</span></div>
                     <div><span>个人照:</span><img :src="user.photo" /></div>
                     <div><span>身份证正面照:</span><img :src="user.id_photo1" /></div>
                     <div><span>身份证反面照:</span><img :src="user.id_photo2" /></div>
-                    <div>是否已认证:<span>否</span></div>
-                    <div><button class="certificateUser" v-on:click="certificateUser($event)">实名认证</button></div>
+                    <div>实名认证状态:<span class='certStatus'>{{user.certificate_status}}</span></div>
+                    <div><button v-on:click="certificateReject($event)" class='certReject'>审核失败</button><button class="certificateUser" v-on:click="certificateUser($event)">审核成功</button></div>
                 </li>
             </ul>
         </div>
@@ -32,9 +32,57 @@
                     users:null
                 },
                 methods:{
+
+                    certificateReject:function(e){
+                        var confirmCerti = confirm("确认该用户实名认证失败?");
+                        if(confirmCerti){
+                            var acct = $(e.target).parents("li").find("span.userAcct").text();
+                            var data = {
+                                acct:acct
+                            };
+
+                            $.ajax({
+                                type : "POST",
+                                url : "/certificateReject",
+                                data:data,
+                                success : function(result) {
+                                    if(result.code === 1){
+                                        alert("审核失败操作成功");
+                                        window.location.href = window.location.href;
+                                    }
+                                },
+                                error : function(e){
+
+                                }
+                            });
+                            
+                        }
+                    },
                     certificateUser:function(e){
-                        var acct = $(e.target).parents("li").find("span.userAcct").text();
-                        alert(acct);
+                        var confirmCerti = confirm("确认该用户实名认证成功?");
+                        if(confirmCerti){
+                            var acct = $(e.target).parents("li").find("span.userAcct").text();
+                            var data = {
+                                acct:acct
+                            };
+                            $.ajax({
+                                type : "POST",
+                                url : "/certificate",
+                                data:data,
+                                success : function(result) {
+                                    if(result.code === 1){
+                                        alert("实名认证审批成功");
+                                        window.location.href = window.location.href;
+                                    }
+                                },
+                                error : function(e){
+
+                                }
+                            });
+
+                        }else{
+                            return false;
+                        }
                        
                     }
                 }
@@ -85,10 +133,22 @@
                 pullUsers();
 
 
-            
-                
-
-
+                function changeCertStatus(){
+                    $.each($("li.eachUser"), function(i, v){
+                        var certStatus =$.trim($(v).find("span.certStatus").text());
+                        if(certStatus === "已实名认证"){
+                            $(v).find("button.certReject").hide();
+                            $(v).find("button.certificateUser").hide();
+                        }else if(certStatus === "实名认证失败"){
+                            $(v).find("button.certReject").hide();
+                            $(v).find("button.certificateUser").hide();
+                        }else if(certStatus === "未实名认证"){
+                            $(v).find("button.certReject").hide();
+                            $(v).find("button.certificateUser").hide();
+                        }
+                    });
+                }
+                setTimeout(changeCertStatus, 500)
             });
         </script>
 

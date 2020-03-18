@@ -69,7 +69,14 @@ router.post("/", function(req, res, next){
                         }
                         flag2++;
                         if(flag2 === 3){
-                            res.redirect("/userInfo");
+                            var sql = "UPDATE user SET certificate_status" + "=?" + " WHERE acct" + "=?";
+                            var sqlValue = ["实名认证待审核", acct];
+                            connection.query(sql,sqlValue,function(err, result){
+                                if(err){
+                                    throw err;
+                                }
+                                res.redirect("/userInfo");
+                            });
                         }
                     });
 
@@ -117,7 +124,14 @@ router.post("/", function(req, res, next){
                                 }
                                 flag++;
                                 if(flag === 3){
-                                    res.redirect("/userInfo");
+                                    var sql = "UPDATE user SET certificate_status" + "=?" + " WHERE acct" + "=?";
+                                    var sqlValue = ["实名认证待审核", acct];
+                                    connection.query(sql,sqlValue,function(err, result){
+                                        if(err){
+                                            throw err;
+                                        }
+                                        res.redirect("/userInfo");
+                                    });
                                 }
                             });
                         });

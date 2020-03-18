@@ -43,6 +43,12 @@ var loginPostRouter = require('./routes/loginPostRouter');
 var logoutRouter = require('./routes/logoutRouter');
 var userInfoCompleteRouter = require('./routes/userInfoCompleteRouter');
 var allUsersRouter = require('./routes/allUsersRouter');
+var certificateRouter = require('./routes/certificateRouter');
+var certificateRejectRouter = require('./routes/certificateRejectRouter');
+var initProjectRouter = require('./routes/initProjectRouter');
+var startProjectRouter = require('./routes/startProjectRouter');
+var getProjectsRouter = require('./routes/getProjectsRouter');
+var U_joinProjectsRouter = require('./routes/U_joinProjectsRouter');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -58,6 +64,18 @@ app.use("/loginPost", loginPostRouter);
 app.use("/logout", logoutRouter);
 app.use("/userInfoComplete", userInfoCompleteRouter);
 app.use("/allUsers", allUsersRouter);
+app.use("/certificate", certificateRouter);
+app.use("/certificateReject", certificateRejectRouter);
+app.use("/initProject", initProjectRouter);
+app.use("/startProject", startProjectRouter);
+app.use("/getProjects", getProjectsRouter);
+app.use("/U_joinProjects", U_joinProjectsRouter);
+
+
+
+
+
+
 
 
 

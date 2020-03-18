@@ -269,7 +269,7 @@ body{background:#fff;}
 .desc_img a{display:table-cell;*display: block;width:260px;height:260px;background:#fff;overflow:hidden;vertical-align: middle;}
 .desc_img img{width:260px;vertical-align:middle;}
 
-.listimg_opp{background:url(images/noimg_opp.jpg) center center no-repeat;}
+.listimg_opp{background:url("/images/noimg_opp.jpg") center center no-repeat;}
 .listimg_org{background:url(images/noimg_org.jpg) center center no-repeat;}
 .gender1{background:url(images/noimg_avatar_1.jpg) center center no-repeat;}
 .gender0{background:url(images/noimg_avatar_0.jpg) center center no-repeat;}

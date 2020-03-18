@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+  </head>
+  <style>
+
+  </style>
+<body>
+        <label>项目名称</label><input type='text' id='pj_name' /><br />
+        <label>项目招募人数:</label><input type='text' id='per_number' /><br />
+        <button id='initProject'>发起项目</button>
+
+<script>        
+$(document).ready(function () {
+    $("#initProject").on("click", function(){
+        var data = {
+            pj_name:"",
+            per_number:0
+        };
+        var pj_name = $("#pj_name").val();
+        var per_number = $("#per_number").val();
+        data.pj_name = pj_name;
+        data.per_number = per_number;
+        $.ajax({
+            type : "POST",
+            url : "/startProject",
+            data:data,
+            success : function(result) {
+                if(result.code === 1){
+                    alert("项目发起成功");
+                    window.location.href = "/";
+                }
+            },
+            error : function(e){
+
+            }
+        });
+
+
+    });
+
+
+})
+</script>
+</body>
+</html>
