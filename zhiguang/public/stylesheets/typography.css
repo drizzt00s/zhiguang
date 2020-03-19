@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1 {
+font-family: trebuchet ms;
+font-size: 24px;
+color: #f0efef;
+text-shadow: #282828 -1px 2px 0px;
+margin-bottom: 20px;
+font-weight: bold;
+}
+h2 {
+font-family: trebuchet ms;
+font-size: 24px;
+color: #454545;
+font-weight: bold;
+margin-bottom: 20px;
+margin-top: 2px;	
+}
+h3 {
+font-family: trebuchet ms;
+font-size: 18px;
+color: #d0d0d0;
+font-weight: bold;
+margin-bottom: 10px;
+margin-top: 25px;
+text-shadow: #282828 -1px 2px 0px;
+}
+h4 {
+font-family: trebuchet ms;
+font-size: 30px;
+color: #963737;
+font-weight: bold;
+text-shadow: #f0f0f0 -1px 1px 0px;	
+letter-spacing: -1px;
+margin-bottom: 15px;
+}
+p.bold {
+font-weight: bold;
+display: inline;
+}
+em.light {
+font-family: cambria;
+font-size: 14px;
+font-style: italic;
+color: #636363;
+font-weight: normal;
+margin-left: 5px;
+}
+em.small {
+font-family: cambria;
+font-size: 14px;
+font-style: italic;
+color: #b3b3b3;
+font-weight: normal;
+display: block;	
+}
+p.text {
+font-family: cambria;
+font-size: 14px;
+color: #595959;
+line-height: 23px;	
+}
+em.pink {
+font-family: cambria;
+font-size: 14px;
+font-style: italic;
+color: #efc4c4;
+font-weight: normal;
+text-shadow: #6f2728 -1px 1px 0px;
+display: block;
+text-align: right;
+margin-right: 5px;	
+}
+h5 {
+font-family: trebuchet ms;
+font-size: 18px;
+color: #454545;
+font-weight: bold;
+margin-bottom: 10px;	
+}

@@ -50,6 +50,13 @@ router.get('/', function(req, res, next) {
             var idPhoto2 = result.id_photo2;
             var certificated = result.certificated;
             var certificate_status = result.certificate_status;
+            //console.log(certificate_status);
+            if(certificate_status === "未实名认证"){
+                idPhoto1 = "/images/unknown.jpg";
+                idPhoto2 = "/images/unknown.jpg";
+                photo = "/images/unknown.jpg";
+            }
+         
             
 
             // if(certificated === 0 || certificated === null){

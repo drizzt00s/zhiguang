@@ -1,25 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href="stylesheets/style1.css" rel="stylesheet" type="text/css" />
-    <link href="stylesheets/style2.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="javascripts/jquery.js"></script>
-    <script type="text/javascript" src="javascripts/vue.js"></script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 
+<link href="stylesheets/style1.css" rel="stylesheet" type="text/css" />
+<link href="stylesheets/style2.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="stylesheets/stylen.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="stylesheets/reset.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="stylesheets/typography.css" type="text/css" media="screen"/>
 
-    <!-- <script type="text/javascript" src="https://css.zhiyuanyun.com/lib/jquery.scroll.js"></script>
-    <script type="text/javascript" src="https://css.zhiyuanyun.com/lib/nbspslider/jquery.nbspslider.1.1.js"></script> -->
-
+<script type="text/javascript" src="javascripts/jquery.js"></script>
+<script type="text/javascript" src="javascripts/vue.js"></script>
+<script type="text/javascript" src="javascripts/rotator.js"></script>
+<script type="text/javascript" src="javascripts/tweet.js"></script>
 
 <script>
     $(document).ready(function(){
         $("#logout").on("click", function(){
             $.ajax({
                 url : "/logout",
+                cache:false,
                 success : function(result) {
                     if(result.code === 1){
                         alert("退出登录成功");
-                        window.location.href = window.location.href
+                        window.location.href = window.location.href;
                     }
                 },
                 error : function(e){
@@ -31,7 +35,7 @@
    
     });
 </script>
-
+<title>织光公益</title>
   </head>
   <style>
       .logo{
@@ -48,112 +52,183 @@
   </style>
   <body>
 
-
-    <div class="header">
-        <div class="wrap clearfix topmenu">
-            <meta name="csrf-token" content="75194b40ade6ee490c32bb186cb33a55d96fa3fbf9369195979ec84416d2926f">
-            
-
-            <span class="l" id='checkL'> 
-                <a href="/login"  style="color:red">请登录</a>&nbsp;&nbsp;
-                <a href="/register">志愿者注册</a>
-            </span>
-            <span><span style='color:red' id="logout">退出</span><a href="/userInfo"><span id="userSpan" style='color:red'><%= user %></span></a> </span>
-    
+<div class="header">
+    <div class="wrap clearfix topmenu">
+    <span class="l" id='checkL'> 
+    <a href="/login"  style="color:red" id='lg'>登录</a>&nbsp;
+    <a href="/register">志愿者注册</a>
+    </span>
+    <span><a href='#' style='color:red' id="logout">退出</a><a href="/userInfo"><span id="userSpan" style='color:red'><%= user %></span></a> </span>
     <span class="r topmenu_r">
-       
-                <div class="topmenu_txt">
-            
-        </div>
-                
-     </span></div>
+    <div class="topmenu_txt">
     </div>
+    </span>
+    </div>
+</div>
+
+
+
+<div id="wrapper">
+
+	<div id="header">
+	
+		<div id="header_wrap">
+			<div id="logo">
+			</div>
+			<ul id="navlist">
+				<li id="active"><a href="/" id="current">首页</a></li>
+				<li><a href="/initProject" id='initProject'>发起项目</a></li>
+				<li><a href="/initDonate">发起募捐</a></li>
+			</ul>
+		</div>
+		
+	</div>
+
+
+	<div class="slideshow">
+		<div id="align">
+			<ul class="buttons">
+				<li class="active" id="button1"><a href="#" title="#"></a></li>
+				<li id="button2"><a href="#" title="#"></a></li>
+				<li id="button3"><a href="#" title="#"></a></li>
+			</ul>
+		</div>
+
+		<ul class="slides">
+			<li style="visibility:visible" class="slide" id="image1">
+		
+			<div class="ad_1">
+				<div class="ad_1_left">
+					<img src="/images/ad_text.png" alt="#" class="ad_img"/>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+				</div>
+				<div class="ad_1_right">
+					<img src="/images/ad_price.png" alt="#"/>
+				</div>
+			</div>
+			</li>
+		
+			<li class="slide" id="image2">
+			<div class="ad_1">
+				<div class="ad_1_left">
+					<img src="/images/ad_text.png" alt="#" class="ad_img"/>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+				</div>
+				<div class="ad_1_right">
+					<img src="/images/ad_price.png" alt="#"/>
+				</div>
+			</div>
+			</li>
+		
+			<li class="slide" id="image3">
+			<div class="ad_1">
+				<div class="ad_1_left">
+					<img src="/images/ad_text.png" alt="#" class="ad_img"/>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+				</div>
+				<div class="ad_1_right">
+					<img src="/images/ad_price.png" alt="#"/>
+				</div>
+			</div>
+			</li>
+		</ul>
+	</div>
     
 
+	<div id="plans">
+        
+        <div class='action' id='app'>
+
+            <ul class="list1 clearfix ptitle2">
     
-    <div class="header_logo">
-        <div class="wrap clearfix">
-            <div class="l logo">
-                
-            </div>  
-     
-            <div class="r" style="width:550px;">   
-                <div class="l tsearch clearfix" style="width:350px;">
-                    <div class="l" style="width:76px;height:44px;line-height:44px;text-align:center;">
-                                <div id="tsearch_select">
-                                    <div id="select">新闻文章</div><input type="hidden" id="stype" value="3">                                <div id="tsearch_select_div">
-                                        <a href="javascript:void(0);" onclick="$('#tsearch_select>#select').html($(this).html());$('#stype').val(1);chpos(this);">志愿项目</a>
-                                        <a href="javascript:void(0);" onclick="$('#tsearch_select>#select').html($(this).html());$('#stype').val(2);chpos(this);">志愿团体</a>
-                                        <a href="javascript:void(0);" onclick="$('#tsearch_select>#select').html($(this).html());$('#stype').val(3);chpos(this);">新闻文章</a>
-                                    </div>
-                                </div>  
-                    </div>
-                    <div class="l">
-                        &nbsp;&nbsp;&nbsp;<input style="width:140px;" type="text" class="sq" id="sq" value="">
-                    </div>
-                    <div class="r">
-                        <a href="javascript:void(0);" onclick="top_search();" style="display:block;width:100px;height:44px;display: block; width: 100px; height: 44px; background:#4082d8; color:#fff; font-size: 18px; line-height: 44px; text-align: center;">搜索</a>
-                    </div>
-                    
-                </div>
-                
-                <div class="r">
-                    <a href="/" style="display:block;width:100px;height:100px;"></a>
-                </div>
-            </div> 
-        </div>
-    </div>
-    <div class="nav">
-        <div class="wrap" style="color:#fff;">
-            <a href="/initProject" style="width:73px;" class="sel" id='initProject'>发起项目</a>
-            <a href="/initDonate" style="width:73px;" class="sel" id='initProject'>发起募捐</a>
-        </div>
-    </div>
-
-    <div class='action' id='app'>
-
-        <ul class="list1 clearfix ptitle2">
-
-            <!-- <li class="clearfix"> 
-                <div class="listimg listimg_opp">
-                    <div style="background:#BEBEBE;color:#fff;;">
-                    2020-03-18
+                <li class="clearfix" v-for='project in projects'> 
+                    <div class="listimg listimg_opp">
+                        <div style="background:#BEBEBE;color:#fff;;">
+                            {{project.date}}
+                        </div> 
+                        <span style="display:inline-block;width:210px;height:210px;background:none;"> {{project.pj_name}}</span>
                     </div> 
-                    <a href="/app/opp/view.php?id=9prMaOIm=znOD" title="疫情防控知识宣传" target="_blank" style="display:inline-block;width:210px;height:210px;background:none;"></a> 
-                </div> 
-                <div class="listtxt"> 
-                    <p class="ptitle"><a href="/app/opp/view.php?id=GlUNDuzVbwgFk" title="疫情防控知识宣传" target="_blank">疫情防控知识宣传</a></p> 
-                    <p class="popp clearfix"> <span class="r opp_time_state" style="background:green">招募中</span></p> 
-                </div> 
-                <div class="percent1">
-                    <div class="percent2" style="width:187px;"></div>
-                </div> 
-            </li> -->
-
-
-            <li class="clearfix" v-for='project in projects'> 
-                <div class="listimg listimg_opp">
-                    <div style="background:#BEBEBE;color:#fff;;">
-                        {{project.date}}
+                    <div class="listtxt" id='wp'> 
+                        <p class="ptitle"><span id='pjName'> {{project.pj_name}}</span></p> 
+                        <p class="popp clearfix"><span>计划招募人数</span><span>{{project.pj_person}}</span></p>
+                        <p class="popp clearfix"><span>已招募人数</span><span>{{project.personInUse}}</span></p>
+                        <p class="popp clearfix"> <span class="r opp_time_state" style="background:blue;cursor: pointer;" id='joinProject' v-on:click='joinPj($event)'>加入</span></p> 
                     </div> 
-                    <span style="display:inline-block;width:210px;height:210px;background:none;"> {{project.pj_name}}</span>
-                </div> 
-                <div class="listtxt" id='wp'> 
-                    <p class="ptitle"><span id='pjName'> {{project.pj_name}}</span></p> 
-                    <p class="popp clearfix"><span>计划招募人数</span><span>{{project.pj_person}}</span></p>
-                    <p class="popp clearfix"><span>已招募人数</span><span>{{project.personInUse}}</span></p>
-                    <p class="popp clearfix"> <span class="r opp_time_state" style="background:blue;cursor: pointer;" id='joinProject' v-on:click='joinPj($event)'>加入</span></p> 
-                </div> 
-                <div class="percent1">
-                    <div class="percent2" style="width:187px;"></div>
-                </div> 
-            </li>
+                    <div class="percent1">
+                        <div class="percent2" style="width:187px;"></div>
+                    </div> 
+                </li>
+    
+            </ul>
+        </div>
 
-        </ul>
-    </div>
+
+
+	</div>
+
+
+	
+
+</div>
+
+<div id="footer">
+
+	<div id="footer_wrap">
+	
+		<div id="footer_left">
+			<div id="footer_col">
+				<h3></h3>
+				<ul>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+				</ul>
+			</div>
+			<div id="footer_col_2">
+				<h3> </h3>
+				<ul>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+				</ul>
+			</div>
+			<div id="footer_col_3">
+				<h3></h3>
+				<ul>
+					<li><a href="#"> </a></li>
+					<li><a href="#"> </a></li>
+					<li><a href="#">  </a></li>
+					<li><a href="#"> </a></li>
+					<li><a href="#">  </a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="footer_right">
+			<div id="footer_logo">
+			</div>
+			<div class="clear">
+			</div>
+			<ul>
+				<li></a></li>
+				<li></li>
+				<li><a href="#"></a></li>
+			</ul>
+			<div class="clear">
+			</div>
+		</div>
+	
+	</div>
+
+</div>
+
 
     <script>
-
     var app = new Vue({
         el:"#app",
         data:{
@@ -194,6 +269,12 @@
                 if(!($("#userSpan").text().length <=0) ){
                     $("#checkL").hide();
                 }
+                if(!$("#lg").is(":hidden")){
+                   $("#logout").hide(); 
+                } else{
+                   $("#logout").show(); 
+                }
+            
             }
             checkLogin();
 
