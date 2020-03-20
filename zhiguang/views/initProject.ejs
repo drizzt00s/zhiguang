@@ -34,7 +34,7 @@
                 </div>
                 <ul id="navlist">
                     <li id="active"><a href="/" id="current">首页</a></li>
-                    <li><a href="/initProject" id='initProject'>发起项目</a></li>
+                    <li><a href="/initProject" >发起项目</a></li>
                     <li><a href="/initDonate">发起募捐</a></li>
                     <li><a href="/Donate">募捐详情</a></li>
                 </ul>
@@ -120,6 +120,7 @@ $(document).ready(function () {
         var per_number = $("#per_number").val();
         data.pj_name = pj_name;
         data.per_number = per_number;
+    
         $.ajax({
             type : "POST",
             url : "/startProject",
