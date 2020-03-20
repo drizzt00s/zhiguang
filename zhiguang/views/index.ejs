@@ -21,9 +21,11 @@
                 url : "/logout",
                 cache:false,
                 success : function(result) {
+                    console.log(result);
                     if(result.code === 1){
                         alert("退出登录成功");
-                        window.location.href = window.location.href;
+                        window.location.href = "/";
+                        
                     }
                 },
                 error : function(e){
@@ -46,7 +48,7 @@
           display: none;
       }
       .action{
-          width:1100px;
+          width:930px;
           margin: 0 auto;
       }
   </style>
@@ -55,10 +57,10 @@
 <div class="header">
     <div class="wrap clearfix topmenu">
     <span class="l" id='checkL'> 
-    <a href="/login"  style="color:red" id='lg'>登录</a>&nbsp;
-    <a href="/register">志愿者注册</a>
+    <a href="/login"  style="color:#CC3333;font-weight: bolder;" id='lg'>登录</a>&nbsp;
+    <a href="/register" style="color:gray;font-weight: bolder;">志愿者注册</a>
     </span>
-    <span><a href='#' style='color:red' id="logout">退出</a><a href="/userInfo"><span id="userSpan" style='color:red'><%= user %></span></a> </span>
+    <span><a href='#' style='color:#CC3333;font-weight: bolder;' id="logout">退出</a><a href="/userInfo"><span id="userSpan" style='color:red'><%= user %></span></a> </span>
     <span class="r topmenu_r">
     <div class="topmenu_txt">
     </div>
@@ -78,7 +80,8 @@
 			<ul id="navlist">
 				<li id="active"><a href="/" id="current">首页</a></li>
 				<li><a href="/initProject" id='initProject'>发起项目</a></li>
-				<li><a href="/initDonate">发起募捐</a></li>
+                <li><a href="/initDonate">发起募捐</a></li>
+                <li><a href="/Donate">募捐详情</a></li>
 			</ul>
 		</div>
 		
@@ -100,7 +103,7 @@
 			<div class="ad_1">
 				<div class="ad_1_left">
 					<img src="/images/ad_text.png" alt="#" class="ad_img"/>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+					让血液把咱们的心连接在一齐。
 				</div>
 				<div class="ad_1_right">
 					<img src="/images/ad_price.png" alt="#"/>
@@ -112,7 +115,7 @@
 			<div class="ad_1">
 				<div class="ad_1_left">
 					<img src="/images/ad_text.png" alt="#" class="ad_img"/>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+					良言一句，三冬亦暖，恶语伤人，六月犹寒
 				</div>
 				<div class="ad_1_right">
 					<img src="/images/ad_price.png" alt="#"/>
@@ -124,7 +127,7 @@
 			<div class="ad_1">
 				<div class="ad_1_left">
 					<img src="/images/ad_text.png" alt="#" class="ad_img"/>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+					时代在变，时刻在变，不变的是咱们的关怀
 				</div>
 				<div class="ad_1_right">
 					<img src="/images/ad_price.png" alt="#"/>
@@ -152,7 +155,7 @@
                         <p class="ptitle"><span id='pjName'> {{project.pj_name}}</span></p> 
                         <p class="popp clearfix"><span>计划招募人数</span><span>{{project.pj_person}}</span></p>
                         <p class="popp clearfix"><span>已招募人数</span><span>{{project.personInUse}}</span></p>
-                        <p class="popp clearfix"> <span class="r opp_time_state" style="background:blue;cursor: pointer;" id='joinProject' v-on:click='joinPj($event)'>加入</span></p> 
+                        <p class="popp clearfix"> <span class="r opp_time_state" style="background:#CC3333;cursor: pointer;font-weight: bolder;" id='joinProject' v-on:click='joinPj($event)'>加入</span></p> 
                     </div> 
                     <div class="percent1">
                         <div class="percent2" style="width:187px;"></div>
@@ -175,39 +178,39 @@
 
 	<div id="footer_wrap">
 	
-		<div id="footer_left">
-			<div id="footer_col">
-				<h3></h3>
-				<ul>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-				</ul>
-			</div>
-			<div id="footer_col_2">
-				<h3> </h3>
-				<ul>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-				</ul>
-			</div>
-			<div id="footer_col_3">
-				<h3></h3>
-				<ul>
-					<li><a href="#"> </a></li>
-					<li><a href="#"> </a></li>
-					<li><a href="#">  </a></li>
-					<li><a href="#"> </a></li>
-					<li><a href="#">  </a></li>
-				</ul>
-			</div>
-		</div>
+        <div id="footer_left">
+            <div id="footer_col">
+                <h3></h3>
+                <ul>
+                    <li><a href="#">公益时报</a></li>
+                    <li><a href="#">环球公益</a></li>
+                    <li><a href="#">新华公益</a></li>
+                    <li><a href="#">光明公益</a></li>
+                    <li><a href="#">中青公益</a></li>
+                </ul>
+            </div>
+            <div id="footer_col_2">
+                <h3> </h3>
+                <ul>
+                    <li><a href="#">人民公益</a></li>
+                    <li><a href="#">搜狐公益</a></li>
+                    <li><a href="#">新浪公益</a></li>
+                    <li><a href="#">凤凰公益</a></li>
+                    <li><a href="#">网易公益</a></li>
+                    <li><a href="#">央视公益</a></li>
+                </ul>
+            </div>
+            <div id="footer_col_3">
+                <h3></h3>
+                <ul>
+                    <li><a href="#">上海公益网</a></li>
+                    <li><a href="#">北京公益网</a></li>
+                    <li><a href="#">深圳公益网</a></li>
+                    <li><a href="#">太远公益网</a></li>
+                    <li><a href="#">扬州公益网</a></li>
+                </ul>
+            </div>
+        </div>
 
 		<div id="footer_right">
 			<div id="footer_logo">

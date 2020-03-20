@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="stylesheets/style1.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/style2.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/stylen.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/reset.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/typography.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/common.css" type="text/css" media="screen"/>
+
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/vue.js"></script>
+    <script type="text/javascript" src="javascripts/rotator.js"></script>
+    <script type="text/javascript" src="javascripts/tweet.js"></script>
+    
+    <title>织光公益</title>
+    <style>
+   .action{
+          width:930px;
+          margin: 0 auto;
+      }
+    #wrapper{
+      
+    }
+    </style>
+  </head>
+
+  <body>
+    <div id="wrapper">
+        <%- include ../partials/header.ejs %>
+        <div class="contents">
+            <div id="plans">
+        
+                <div class='action' id='app'>
+        
+                    <ul class="list1 clearfix ptitle2">
+            
+                        <li class="clearfix" v-for='donation in donations'> 
+                            <div class="listimg listimg_opp">
+                                <div style="background:#BEBEBE;color:#fff;;">
+                                    {{donation.date}}
+                                </div> 
+                                <span style="display:inline-block;width:210px;height:210px;background:none;"> {{donation.donationName}}</span>
+                            </div> 
+                            <div class="listtxt" id='wp'> 
+                                <p class="ptitle"><span id='doName'> {{donation.donationName}}</span></p> 
+                                <p class="popp clearfix"><span>计划筹款金额</span><span>{{donation.donationAmount}}</span></p>
+                                <p class="popp clearfix"><span>已筹款金额</span><span>{{donation.currentAmount}}</span></p>
+                                <p class="popp clearfix"> <span class="r opp_time_state" style="background:blue;cursor: pointer;"  v-on:click='donateMoney($event)'>捐献</span></p> 
+                            </div> 
+                            <div class="percent1">
+                                <div class="percent2" style="width:187px;"></div>
+                            </div> 
+                        </li>
+            
+                    </ul>
+                </div>
+        
+        
+        
+            </div>
+        </div>
+    </div>
+    <%- include ../partials/footer.ejs %>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                donations:null
+            },
+            methods:{
+                donateMoney:function(e){
+                    var dName = $(e.target).parents("div#wp").find("span#doName").text();
+                    dName = $.trim(dName);
+                    var data = {
+                        dName:dName
+                    };
+
+
+                    var confirmDonation = prompt("请输入捐献的金额");
+        
+                    if(confirmDonation !== null){
+                        var isNumber = isNaN(confirmDonation);
+                        if(isNumber){
+                            alert("请输入数字");
+                            return false;
+                        }else{
+                            data.donatedMoney = confirmDonation;
+                            $.ajax({
+                                type:"POST",
+                                url : "/donMoney",
+                                data:data,
+                                success : function(result) {
+                                    if(result.code === 1){
+                                        alert("捐赠成功");
+                                        window.location.href = window.location.href;
+                                    }else if(result.code === 2){
+                                        alert("捐赠数额已满");
+                                    }
+                                },
+                                error : function(e){
+
+                                }
+                            });
+                        }
+
+                       
+
+
+
+                    }
+
+                   
+    
+                }
+            }
+        });
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            function getDonations(){
+                $.ajax({
+                    url : "/getDonations",
+                    success : function(result) {
+                        if(result && result.length > 0){
+                            console.log(JSON.stringify(result));
+                            app.donations = result;
+                        }
+                    },
+                    error : function(e){
+
+                    }
+                });
+            }
+            getDonations();
+
+        });
+    </script>
+
+  </body>

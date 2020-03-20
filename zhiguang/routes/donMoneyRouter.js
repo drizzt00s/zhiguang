@@ -18,31 +18,34 @@ Db.prototype.conntect = function(){
 
 
 router.post("/", function(req, res, next){
-    var pjName = req.body.pjName;
-    console.log(pjName);
+    var dName = req.body.dName;
+    var donatedMoney = parseInt(req.body.donatedMoney);
+    console.log(dName);
     var connection = new Db().conntect();
     connection.connect();
-    var sql = "SELECT * FROM project WHERE pj_name" + "=?";
-    var sqlVal = [pjName];
+    var sql = "SELECT * FROM donation WHERE donationName" + "=?";
+    var sqlVal = [dName];
     connection.query(sql,sqlVal,function(err, result){
         if(err){
             throw err;
         }
+
         //console.log(JSON.stringify(result));
-        var pj_people = parseInt(result[0].pj_person);
-        var currentPerson = result[0].personInUse;
-        currentPerson = parseInt(currentPerson);
-        if(pj_people === currentPerson){
-            //人数已满
+
+        var donationAmount = parseInt(result[0].donationAmount);
+        var currentAmount = result[0].currentAmount;
+        currentAmount = parseInt(currentAmount);
+        if(currentAmount >= donationAmount){
+            //捐赠已完成 停止捐赠
             var data = {
                 code:2
             }
             res.send(data);
         } else {
-            currentPerson = currentPerson + 1;
-            currentPerson = currentPerson + "";
-            var sql = "UPDATE project SET personInUse" + "=?" + "WHERE pj_name" + "=?"
-            var sqlVal = [currentPerson,pjName];
+            currentAmount = currentAmount + donatedMoney;
+            currentAmount = currentAmount + "";
+            var sql = "UPDATE donation SET currentAmount" + "=?" + "WHERE donationName" + "=?"
+            var sqlVal = [currentAmount,dName];
             connection.query(sql, sqlVal, function(err, result){
                 if(err){
                     throw err;

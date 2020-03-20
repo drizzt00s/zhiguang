@@ -38,6 +38,29 @@
 
     <script>
         $(document).ready(function () {
+            $("#initDon").on("click", function(){
+                var name = $("#pj_name").val();
+                var expectedAmount = $("#per_number").val();
+                var data = {
+                    name:name,
+                    expectedAmount:expectedAmount
+                };
+                $.ajax({
+                    type : "POST",
+                    url : "/startDonation",
+                    data:data,
+                    success : function(result) {
+                        if(result.code === 1){
+                            alert("募捐发起成功");
+                            window.location.href = "/";
+                        }
+                    },
+                    error : function(e){
+
+                    }
+                });
+
+            });
 
         });
     </script>
