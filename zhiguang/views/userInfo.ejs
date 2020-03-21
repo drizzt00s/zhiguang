@@ -67,17 +67,20 @@
                         <div class='uInfo font1'>身份证照片反面:<span id="idPhoto2" class="check1"><img class='commonImg' src="<%= idPhoto2 %>" /></span></div>
                     </div>
                 </div>
+
                 <div id='submitForm'>
                     <form action="/userInfoComplete"id="userComplete" enctype="multipart/form-data" method="post">
-                        <div class='uInfo font1'></div><label name='idCard1'>上传身份证正面</label><input type="file" name="idCard1" /><br /></div>
-                        <div class='uInfo font1'></div><label name='idCard2'>上传身份证反面</label><input type="file" name="idCard2" /><br /></div>
-                        <div class='uInfo font1'></div><label name='photo'>上传个人照</label><input type="file" name="photo" /><br /></div>
+                        <div class='uInfo font1'></div><label name='idCard1'>上传身份证正面</label><input type="file" name="idCard1" id='idCard1' /><br /></div>
+                        <div class='uInfo font1'></div><label name='idCard2'>上传身份证反面</label><input type="file" name="idCard2" id='idCard2' /><br /></div>
+                        <div class='uInfo font1'></div><label name='photo'>上传个人照</label><input type="file" name="photo" id='photo' /><br /></div>
                         <!-- <label name="birthday">生日</label><input type="text" /><br /> -->
-                        <button id="completeUserInfo">提交</button>
+                        <button type="button" id="completeUserInfo">上传</button>
                     </form>
                 </div>
             </div>
 
+
+   
 
 
         </div>
@@ -148,10 +151,26 @@
 <script>
 $(document).ready(function(){
 
-    $("#completeUserInfo").on("click", function(){
-        document.getElementById("userComplete").submit();
-        alert("提交成功");
+    $("#completeUserInfo").on("click", function(){ 
+        var idCard1 =  $("#idCard1")[0].files[0];
+        var idCard2 =  $("#idCard2")[0].files[0];
+        var photo =  $("#photo")[0].files[0];
+        if(!idCard1){
+            alert("请选择身份证正面照");
+            return false;
+        }else if(!idCard2){
+            alert("请选择身份证反面照");
+            return false;
+        }else if(!photo){
+            alert("请选择个人照片");
+            return false;
+        }else{
+            alert("提交成功");
+            document.getElementById("userComplete").submit();
+        }
     });
+
+
 
     function checkInfoStatus(){
         var infoStatus =$.trim($("#idChecked").text());
