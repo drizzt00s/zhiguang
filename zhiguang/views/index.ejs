@@ -164,7 +164,7 @@
     <a href="/login"  style="color:#CC3333;font-weight: bolder;" id='lg'>登录</a>&nbsp;
     <a href="/register" style="color:gray;font-weight: bolder;">志愿者注册</a>
     </span>
-    <span><a href='#' style='color:#CC3333;font-weight: bolder;' id="logout">退出</a><a href="/userInfo"><span id="userSpan" style='color:red'></span></a> </span>
+    <span><a href='#' style='color:#CC3333;font-weight: bolder;' id="logout">退出</a><a href="/userInfo"><span id="userSpan" style='color:red'><%= user %></span></a> </span>
     <span class="r topmenu_r">
     <div class="topmenu_txt">
     </div>
@@ -315,10 +315,10 @@
         },
         methods:{
             joinPj:function(e){
-
-                
-                
-
+                if(!$("#lg").is(":hidden")){
+                    window.location.href = "/login";
+                    return false;
+                }
                 var pjName = $(e.target).parents("div#wp").find("span#pjName").text();
                 pjName = $.trim(pjName);
                 var data = {
@@ -349,6 +349,7 @@
     <script>
         $(document).ready(function () {
             function checkLogin(){
+          
                 if(!($("#userSpan").text().length <=0) ){
                     $("#checkL").hide();
                 }

@@ -27,6 +27,19 @@
   </head>
 
   <body>
+    <div class="header">
+        <div class="wrap clearfix topmenu">
+        <span class="l" id='checkL'> 
+        <a href="/login"  style="color:#CC3333;font-weight: bolder;" id='lg'>登录</a>&nbsp;
+        <a href="/register" style="color:gray;font-weight: bolder;">志愿者注册</a>
+        </span>
+        <span><a href='#' style='color:#CC3333;font-weight: bolder;' id="logout">退出</a><a href="/userInfo"><span id="userSpan" style='color:red'><%= user %></span></a> </span>
+        <span class="r topmenu_r">
+        <div class="topmenu_txt">
+        </div>
+        </span>
+        </div>
+    </div>
     <div id="wrapper">
         <%- include ../partials/header.ejs %>
         <div class="contents">
@@ -71,6 +84,11 @@
             },
             methods:{
                 donateMoney:function(e){
+
+                //     if(!$("#lg").is(":hidden")){
+                //     window.location.href = "/login";
+                //     return false;
+                // }
                     var dName = $(e.target).parents("div#wp").find("span#doName").text();
                     dName = $.trim(dName);
                     var data = {
@@ -120,6 +138,26 @@
 
     <script>
         $(document).ready(function () {
+
+
+            $("#logout").on("click", function(){
+            $.ajax({
+                url : "/logout",
+                cache:false,
+                success : function(result) {
+                    console.log(result);
+                    if(result.code === 1){
+                        alert("退出登录成功");
+                        window.location.href = "/";
+                        
+                    }
+                },
+                error : function(e){
+                    
+                }
+            });
+
+        });
             function getDonations(){
                 $.ajax({
                     url : "/getDonations",
@@ -135,6 +173,21 @@
                 });
             }
             getDonations();
+
+
+            function checkLogin(){
+          
+          if(!($("#userSpan").text().length <=0) ){
+              $("#checkL").hide();
+          }
+          if(!$("#lg").is(":hidden")){
+             $("#logout").hide(); 
+          } else{
+             $("#logout").show(); 
+          }
+      
+      }
+      checkLogin();
 
         });
     </script>
