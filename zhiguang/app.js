@@ -54,6 +54,14 @@ var startDonationRouter = require('./routes/startDonationRouter');
 var DonateRouter = require('./routes/DonateRouter');
 var getDonationsRouter = require('./routes/getDonationsRouter');
 var donMoneyRouter = require('./routes/donMoneyRouter');
+var finpRouter = require('./routes/finpRouter');
+var checkPlRouter = require('./routes/checkPlRouter');
+var missingPlRouter = require('./routes/missingPlRouter');
+var jubaoFalseDonationRouter = require('./routes/jubaoFalseDonationRouter');
+var jubaoFalseActRouter = require('./routes/jubaoFalseActRouter');
+var newsRouter = require('./routes/newsRouter');
+
+var newsDetailRouter = require('./routes/newsDetailRouter');
 
 
 
@@ -82,6 +90,18 @@ app.use("/startDonation", startDonationRouter);
 app.use("/Donate", DonateRouter);
 app.use("/getDonations", getDonationsRouter);
 app.use("/donMoney", donMoneyRouter);
+app.use("/checkPl", checkPlRouter);
+app.use("/finp", finpRouter);
+app.use("/missingPl", missingPlRouter);
+app.use("/jubaoFalseDonation", jubaoFalseDonationRouter);
+app.use("/jubaoFalseAct", jubaoFalseActRouter);
+app.use("/news", newsRouter);
+
+
+app.use("/newsDetail", newsDetailRouter);
+
+
+
 
 
 

@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     console.log(sessionData);
     if(!sessionData){
         //没登录
-        res.redirect("http://localhost:3000/admin");
+        res.redirect("http://47.107.184.56:3000/admin");
     }else{
         var adminType = sessionData.adminType;
         var acct = sessionData.acct;

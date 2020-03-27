@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="stylesheets/style1.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/style2.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/stylen.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/reset.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/typography.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/common.css" type="text/css" media="screen"/>
+
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/vue.js"></script>
+    <script type="text/javascript" src="javascripts/rotator.js"></script>
+    <script type="text/javascript" src="javascripts/tweet.js"></script>
+    
+    <title>织光公益</title>
+    <style>
+      .contents{
+          padding:20px;
+      }
+      .f2{
+          margin-top:15px;
+      }
+      #fb{
+            width:90px;
+            height:25px;
+            line-height: 10px;
+            margin-top:15px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="wrapper">
+        <%- include ../partials/header.ejs %>
+        <div class="contents">
+            <div class="f1"><label class='font1'>失踪人姓名</label><input style='margin-left:32px;'class='commonInput fbv' type='text' id='pj_name' /></div>
+            <div class="f2"><label class='font1'>失踪日期</label><input style='margin-left:50px;' class='commonInput fbv' type='text' id='per_number' /></div>
+            <div class="f2"><label class='font1'>失踪地点</label><input style='margin-left:50px;' class='commonInput fbv' type='text' id='missingLocation' /></div>
+            <div class="f2"><label class='font1'>具体地点</label><input style='margin-left:50px;' class='commonInput fbv' type='text' id='specificMissingLocation' /></div>
+            <button id='fb'>发布</button>
+        </div>
+    </div>
+    <%- include ../partials/footer.ejs %>
+
+    <script>
+        $(document).ready(function () {
+            $("#fb").on("click", function(){
+                var errorInit = "请输入 ";
+                var errorVal = "";
+                
+                $.each($(".fbv"), function(index, v){
+                    var checkVal = $(v).val();
+                    if(checkVal.length === 0){
+                        labelName = $(v).parent("div").find("label.font1").text();
+                        errorVal = errorVal + labelName;
+                        if(index !== ($(".fbv").length) - 1){
+                            errorVal = errorVal + " ";
+                        }
+                    }
+                });
+                errorInit = errorInit + errorVal;
+
+                if(errorVal === 0){
+                    alert("发布成功");
+                }else{
+                    alert(errorInit);
+                }
+                
+           
+            });
+
+        });
+    </script>
+
+  </body>

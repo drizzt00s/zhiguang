@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="stylesheets/style1.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/style2.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/stylen.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/reset.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/typography.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/common.css" type="text/css" media="screen"/>
+
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/vue.js"></script>
+    <script type="text/javascript" src="javascripts/rotator.js"></script>
+    <script type="text/javascript" src="javascripts/tweet.js"></script>
+    
+    <title>织光公益</title>
+    <style>
+        .contents{
+            padding:12px;
+            
+        }
+        .jb{
+            font-size: 18px;
+        }
+        .reason{
+            width: 700px;
+            height:300px;
+            padding:5px;
+            margin-top:15px;
+        }
+        #jbButton{
+            width:90px;
+            height:25px;
+            line-height: 10px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="wrapper">
+        <%- include ../partials/header.ejs %>
+        <div class="contents">
+            <p class='jb'>请输入举报原因</p>
+            <textarea class='reason'></textarea><br />
+            <button id='jbButton'>举报</button>
+        </div>
+    </div>
+    <%- include ../partials/footer.ejs %>
+    <script>
+        $(document).ready(function () {
+            $("#jbButton").on("click", function(e){
+                if($(".reason").val().length === 0){
+                    alert("请输入举报内容");
+                    return fasle;
+                }
+
+                alert("举报成功");
+            });
+        })
+    </script>
+    
+
+  </body>

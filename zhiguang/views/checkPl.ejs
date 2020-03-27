@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="stylesheets/style1.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/style2.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/stylen.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/reset.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/typography.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/common.css" type="text/css" media="screen"/>
+
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/vue.js"></script>
+    <script type="text/javascript" src="javascripts/rotator.js"></script>
+    <script type="text/javascript" src="javascripts/tweet.js"></script>
+    
+    <title>织光公益</title>
+    <style>
+        .contents{
+            padding: 20px;
+        }
+        #p1{
+            
+        }
+
+        .action{
+            width:930px;
+            margin: 0 auto;
+        }
+        #wrapper{
+
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="wrapper">
+        <%- include ../partials/header.ejs %>
+        <div class="contents">
+            
+            <div id='p1'>
+                <div style='font-size:20px;'><a href='/missingPl?id=0'><span>刘华华</span><span>女</span><span>失踪时间:2015-8-1</span><span>失踪地点:江苏南京</span></a></div>
+                <div style='margin-top: 25px; font-size:20px;'><a href='/missingPl?id=1'><span>王明</span><span>男</span><span>失踪时间:2014-1-11</span><span>失踪地点:江苏南京</span></a></div>
+                <div style='margin-top: 25px; font-size:20px;'><a href='/missingPl?id=2'><span>赵大伟</span><span>男</span><span>失踪时间:2005-8-11</span><span>失踪地点:江苏徐州</span></a></div>
+                <div style='margin-top: 25px; font-size:20px;'><a href='/missingPl?id=3'><span>张花</span><span>女</span><span>失踪时间:2018-6-6</span><span>失踪地点:山东菏泽</span></a></div>
+                <div style='margin-top: 25px; font-size:20px;'><a href='/missingPl?id=4'><span>徐晓东</span><span>女</span><span>失踪时间:2017-9-12</span><span>失踪地点:山西</span></a></div>
+            </div>
+            <div id='p2'>查看失踪人员</div>
+            <div id='p3'>
+                            <div class='action' id='app'>
+                    
+                                <ul class="list1 clearfix ptitle2">
+                        
+                                    <li class="clearfix" v-for='donation in donations'> 
+                                        <div class="listimg listimg_opp">
+                                            <div style="background:#BEBEBE;color:#fff;;">
+                                                {{donation.date}}
+                                            </div> 
+                                            <span style="display:inline-block;width:210px;height:210px;background:none;"> {{donation.donationName}}</span>
+                                        </div> 
+                                        <div class="listtxt" id='wp'> 
+                                            <p class="ptitle"><span id='doName'> {{donation.donationName}}</span></p> 
+                                            <p class="popp clearfix"><span>计划筹款金额</span><span>{{donation.donationAmount}}</span></p>
+                                            <p class="popp clearfix"><span>已筹款金额</span><span>{{donation.currentAmount}}</span></p>
+                                            <p class="popp clearfix"> <span class="r opp_time_state" style="background:blue;cursor: pointer;"  v-on:click='jb($event)'>举报</span></p> 
+                                        </div> 
+                                        <div class="percent1">
+                                            <div class="percent2" style="width:187px;"></div>
+                                        </div> 
+                                    </li>
+                        
+                                </ul>
+                            </div>
+            </div>
+            <div id='p4'>
+
+
+                <div class='action' id='app2'>
+                    <ul class="list1 clearfix ptitle2">
+            
+                        <li class="clearfix" v-for='project in projects'> 
+                            <div class="listimg listimg_opp">
+                                <div style="background:#BEBEBE;color:#fff;;">
+                                    {{project.date}}
+                                </div> 
+                                <span style="display:inline-block;width:210px;height:210px;background:none;"> {{project.pj_name}}</span>
+                            </div> 
+                            <div class="listtxt" id='wp'> 
+                                <p class="ptitle"><span id='pjName'> {{project.pj_name}}</span></p> 
+                                <p class="popp clearfix"><span>计划招募人数</span><span>{{project.pj_person}}</span></p>
+                                <p class="popp clearfix"><span>已招募人数</span><span>{{project.personInUse}}</span></p>
+                                <p class="popp clearfix"> <span class="r opp_time_state" style="background:#CC3333;cursor: pointer;font-weight: bolder;" id='joinProject' v-on:click='jbPj($event)'>举报</span></p> 
+                            </div> 
+                            <div class="percent1">
+                                <div class="percent2" style="width:187px;"></div>
+                            </div> 
+                        </li>
+            
+                    </ul>
+               
+                </div>
+
+            </div>
+            <div id='p5'>快速查找志愿者活动</div>
+        </div>
+    </div>
+    <%- include ../partials/footer.ejs %>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                donations:null
+     
+            },
+            methods:{
+                jb:function(e){
+                    window.location.href = "/jubaoFalseDonation";
+
+                   
+    
+                }
+            }
+        });
+        </script>
+            <script>
+                var app2 = new Vue({
+                    el:"#app2",
+                    data:{
+                        projects:null
+                    },
+                    methods:{
+                        jbPj:function(e){
+                            window.location.href = "/jubaoFalseAct";
+        
+                           
+            
+                        }
+                    }
+                });
+                </script>
+
+    <script>
+        $(document).ready(function () {
+            function checkPart(){
+                var url = window.location.href;
+                var index = url.indexOf("=");
+                var val = url.substring(index + 1);
+                if(val == 1){
+                    $("#p1").show();
+                    $("#p1").siblings().hide();
+                } else if(val == 2){
+                    $("#p2").show();
+                    $("#p2").siblings().hide();
+                }else if(val == 3){
+                    $("#p3").show();
+                    $("#p3").siblings().hide();
+                    
+
+
+                }else if(val == 4){
+                    $("#p4").show();
+                    $("#p4").siblings().hide();
+                }else if(val == 5){
+                    $("#p5").show();
+                    $("#p5").siblings().hide();
+                }
+                
+         
+            }
+            checkPart();
+        });
+    </script>
+
+<script>
+    $(document).ready(function () {
+        function getDonations(){
+            $.ajax({
+                url : "/getDonations",
+                success : function(result) {
+                    if(result && result.length > 0){
+                        console.log(JSON.stringify(result));
+                        app.donations = result;
+                    }
+                },
+                error : function(e){
+
+                }
+            });
+        }
+        getDonations();
+
+
+
+        function getProjects(){
+                $.ajax({
+                    url : "/getProjects",
+                    success : function(result) {
+                        if(result && result.length > 0){
+                            console.log(JSON.stringify(result));
+                            app2.projects = result;
+                          
+                        }
+                    },
+                    error : function(e){
+
+                    }
+                });
+            }
+
+            getProjects();
+
+    });
+</script>
+
+  </body>

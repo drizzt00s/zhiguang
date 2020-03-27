@@ -14,10 +14,12 @@ function Db(){
 
 Db.prototype.conntect = function(){
     var connection = mysql.createConnection({
-        host     : 'localhost',
+        host     : '47.107.184.56',
         user     : 'root',
-        password : '5225541a',
-        database : 'zhiguang'
+        password : '5225541a!Asc234!',
+        database : 'zhiguang',
+        port:"3306",
+        insecureAuth:true
     }); 
     return connection;
 };

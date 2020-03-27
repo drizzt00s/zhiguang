@@ -13,12 +13,10 @@ router.get('/', function(req, res, next) {
     var user = userData.user_acct;
     res.render('index', {user:user});
   }
-
-
-
-
-
-
 });
+
+
+
+
 
 module.exports = router;
