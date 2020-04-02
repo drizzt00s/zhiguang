@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="stylesheets/style1.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/style2.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/stylen.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/reset.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/typography.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/common.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="stylesheets/layui.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/vue.js"></script>
+    <script type="text/javascript" src="javascripts/rotator.js"></script>
+    <script type="text/javascript" src="javascripts/tweet.js"></script>
+    
+    <title>织光公益</title>
+ 
+    <style>
+        .contents{
+          
+           
+        }
+       .sealLayer{
+           position: absolute;
+           width:100%;
+           height:100%;
+           background-color: #000;
+           opacity:0.5;
+           z-index:99;
+           top:0px;
+           left:0px;
+       }
+       .pop{
+           position: absolute;
+           width:600px;
+           height:300px;
+           background-color: #fff;
+           z-index:999;
+           top:50%;
+           left:50%;
+           margin-top:-150px;
+           margin-left:-300px;
+           
+       }
+       .l1{
+           margin-top:20px;
+           margin-left:20px;
+           font-size:16px;
+       }
+       #publishCo{
+           width:100px;
+           height:25px;
+           font-size:14px!important;
+       }
+       .pI{
+            height:35px;
+            line-height:35px;
+            width:230px;
+            padding-left:3px;
+      
+       }
+       .pT{
+           width:230px;
+           height:100px;
+           padding-left:3px;
+           padding-top:3px;
+        }
+        .lc1{
+            margin-left:92px;
+        }
+        #footer{
+            padding-top:25px;
+        }
+    </style>
+  </head>
+
+  <body id='body'>
+    <div id="wrapper">
+        <%- include ../partials/header.ejs %>
+        <div class="contents">
+            <!-- <div class="header">
+                <div class="menu-btn">
+                  <div class="menu"></div>
+                </div>
+                <h1 class="logo">
+                  <a href="index.html">
+                    <span>MYBLOG</span>
+                    <img src="/images/logods.png">
+                  </a>
+                </h1>
+                <div class="nav">
+                  <a href="index.html" class="active">文章</a>
+                  <a href="whisper.html">微语</a>
+                  <a href="leacots.html">留言</a>
+                  <a href="album.html">相册</a>
+                  <a href="about.html">关于</a>
+                </div>
+                <ul class="layui-nav header-down-nav">
+                  <li class="layui-nav-item"><a href="index.html" class="active">文章</a></li>
+                  <li class="layui-nav-item"><a href="whisper.html">微语</a></li>
+                  <li class="layui-nav-item"><a href="leacots.html">留言</a></li>
+                  <li class="layui-nav-item"><a href="album.html">相册</a></li>
+                  <li class="layui-nav-item"><a href="about.html">关于</a></li>
+                </ul>
+                <p class="welcome-text">
+                  欢迎来到<span class="name">小明</span>的博客~
+                </p>
+              </div> -->
+            
+              <div class="banner">
+                <div class="cont w1000">
+                  <div class="title">
+                    <h3>我的博客</h3>
+                    <h4 style='margin-top:15px;'>平静的心灵</h4>
+                  </div>
+                  <div class="amount">
+                    <!-- <p><span class="text">访问量</span><span class="access">1000</span></p>
+                    <p><span class="text">日志</span><span class="daily-record">1000</span></p> -->
+                  </div>
+                </div>
+              </div>
+            
+              <div class="content">
+                <div class="cont w1000">
+                  <div class="title">
+                    
+                      <a href="#" class="active">发布感想</a>
+                      <!-- <a href="javascript:;">前端文章</a>
+                      <a href="javascript:;">旅游杂记</a> -->
+            
+                  </div>
+                  <div class="list-item">
+                    <div class="item">
+                      <div class="layui-fluid">
+                        <div class="layui-row">
+                          <div class="layui-col-xs12 layui-col-sm4 layui-col-md5">
+                            <div class="img"><img src="/images/sy_img1.jpg" alt=""></div>
+                          </div>
+                          <div class="layui-col-xs12 layui-col-sm8 layui-col-md7">
+                            <div class="item-cont">
+                              <h3>2018，我们遇见了更多有爱有担当的人<button class="layui-btn layui-btn-danger new-icon">new</button></h3>
+                              <h5>公益感言</h5>
+                              <p>他们虽然知道社会的不完美，但仍然愿意为了创造一个美好的世界，和我们一起去努力。我们所做的点点滴滴小事、实事、善事，赋予了我们人生全新的意义，更为自己的生命注入了新的能量，让我们的内心变得更丰盈和强大，脚步更加坚定</p>
+                              <a href="#" class="go-icon"></a>
+                            </div>
+                        </div>
+                        </div>
+                       </div>
+                    </div>
+                    <div class="item">
+                      <div class="layui-fluid">
+                        <div class="layui-row">
+                          <div class="layui-col-xs12 layui-col-sm4 layui-col-md5">
+                            <div class="img"><img src="/images/sy_img2.jpg" alt=""></div>
+                          </div>
+                          <div class="layui-col-xs12 layui-col-sm8 layui-col-md7">
+                            <div class="item-cont">
+                              <h3>2019年里，希望我们每一位志愿者，用我们的行动，感染更多的人与我们同行<button class="layui-btn layui-btn-danger new-icon">new</button></h3>
+                              <h5>公益感言</h5>
+                              <p>用爱的力量，挽救更多的生命，让更多的困境儿童露出会心的笑容，让更多的无助老人得到真正的依靠，让雪城这座城市更加温暖！</p>
+                              <a href="#" class="go-icon"></a>
+                            </div>
+                        </div>
+                        </div>
+                       </div>
+                    </div>
+                    <div class="item">
+                      <div class="layui-fluid">
+                        <div class="layui-row">
+                          <div class="layui-col-xs12 layui-col-sm4 layui-col-md5">
+                            <div class="img"><img src="/images/sy_img3.jpg" alt=""></div>
+                          </div>
+                          <div class="layui-col-xs12 layui-col-sm8 layui-col-md7">
+                            <div class="item-cont">
+                              <h3>新的一年，向所有辛苦一年的每一位志愿者以及你们的家人，说一声”新年好”! <button class="layui-btn layui-btn-danger new-icon">new</button></h3>
+                              <h5>公益感言</h5>
+                              <p>一元复始，万象更新。在过去的一年里，我们有得有失，但总结而言，得远大于失！所谓得，是我们给更多悲观者带来了希望，给更多逆境者送去了温暖。</p>
+                              <a href="#" class="go-icon"></a>
+                            </div>
+                        </div>
+                        </div>
+                       </div>
+                    </div>
+                    <div class="item">
+                      <div class="layui-fluid">
+                        <div class="layui-row">
+                          <div class="layui-col-xs12 layui-col-sm4 layui-col-md5">
+                            <div class="img"><img src="/images/sy_img4.jpg" alt=""></div>
+                          </div>
+                          <div class="layui-col-xs12 layui-col-sm8 layui-col-md7">
+                            <div class="item-cont">
+                              <h3>走进公益的大家庭，身着红色的马甲，兄弟姐妹你心有我，我心有你<button class="layui-btn layui-btn-danger new-icon">new</button></h3>
+                              <h5>公益感言</h5>
+                              <p>你无私帮助，她心怀感恩，我们心有灵犀；我幸福因为有你，你快乐因大家庭，我们开心同享。</p>
+                              <a href="details.html" class="go-icon"></a>
+                            </div>
+                        </div>
+                        </div>
+                       </div>
+                    </div>
+                    <div class="item">
+                      <div class="layui-fluid">
+                        <div class="layui-row">
+                          <div class="layui-col-xs12 layui-col-sm4 layui-col-md5">
+                            <div class="img"><img src="/images/sy_img5.jpg" alt=""></div>
+                          </div>
+                          <div class="layui-col-xs12 layui-col-sm8 layui-col-md7">
+                            <div class="item-cont">
+                              <h3>爱如春草，不见其长，而日有所增;行善之人，福虽未至，而祸已远离<button class="layui-btn layui-btn-danger new-icon">new</button></h3>
+                              <h5>公益感言</h5>
+                              <p>善良的女人最美丽！愿多一些“爱的天使”，影响和带动更多的人关注公益，参与公益！帮助更多需要帮助的人！</p>
+                              <a href="details.html" class="go-icon"></a>
+                            </div>
+                        </div>
+                        </div>
+                       </div>
+                    </div>
+                  </div>
+                  <div id="demo" style="text-align: center;"></div>
+                </div>
+              </div>
+            
+              <!-- <div class="footer-wrap">
+                <div class="footer w1000">
+                  <div class="qrcode">
+                    <img src="/images/erweima.jpg">
+                  </div>
+                  <div class="practice-mode">
+                    <img src="/images/down_img.jpg">
+                    <div class="text">
+                      <h4 class="title">我的联系方式</h4>
+                      <p>微信<span class="WeChat">1234567890</span></p>
+                      <p>手机<span class="iphone">1234567890</span></p>
+                      <p>邮箱<span class="email">1234567890@qq.com</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+        
+        </div>
+    </div>
+    <%- include ../partials/footer.ejs %>
+
+    <script>
+        function pb(){
+            var title = $(".pI").val();
+            var contents = $(".pT").val();
+            if(title.length === 0 || contents.length === 0){
+                alert("请输入标题和内容");
+                return false;
+            }
+            var wrap = "<div class='item'>"+
+                "<div class='layui-fluid'>"+
+                    "<div class='layui-row'>"+
+                        " <div class='layui-col-xs12 layui-col-sm4 layui-col-md5'>"+
+                            "<div class='img'><img src='/images/sy_img2.jpg'></div>"+
+                            " </div>"+
+                            "<div class='layui-col-xs12 layui-col-sm8 layui-col-md7'>"+
+                                "<div class='item-cont'>"+
+                                    "<h3><span class='pc'>" + title + "</span><button class='layui-btn layui-btn-danger new-icon'>new</button></h3>"+
+                                    " <h5>公益感言</h5>"+
+                                    "<div class='pc2'>" + contents + "</div>"+
+                                    "<a href='#' class='go-icon'></a>"+
+                                    "</div>"+
+                                    "</div>"+
+                                    "</div>"+
+                                    "</div>"+
+                                "</div>";
+           
+            $(wrap).appendTo("div.list-item");
+            $(".sealLayer").remove();
+            $("#pop").remove();
+        }
+       
+        $(document).ready(function () {
+
+            $(".active").on("click", function(){
+                popUp();
+            });
+       
+            function popUp(){
+                var seal = $("<div class='sealLayer'></div>");
+                seal.appendTo($("#body"));
+                var pop = $("<div class='pop' id='pop'>"+
+                                "<div class='l1 la1'><span>感言标题</span><input class='pI'  style='margin-left:9px;' type='text' id='popTitle' /></div>"+
+                                "<div class='l1 lb1'><span>感言内容</span><textarea  class='pT' style='margin-left:9px;' id='popContents'></textarea></div>"+
+                                "<div class='l1 lc1'><button id='publishCo' onclick='pb()'>发表</button></div>"+
+                            "</div>"
+                    );
+                pop.appendTo($("#body"));
+            }   
+
+         
+    
+        });
+    </script>
+
+  </body>

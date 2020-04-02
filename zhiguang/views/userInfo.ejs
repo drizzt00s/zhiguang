@@ -45,8 +45,12 @@
                     <ul id="navlist">
                         <li id="active"><a href="/" id="current">首页</a></li>
                         <li><a href="/initProject" id='initProject'>发起项目</a></li>
-                        <li><a href="/initDonate">发起募捐</a></li>
-                        <li><a href="/Donate">募捐详情</a></li>
+                        <li><a href="/initDonate">募捐</a></li>
+                        <li><a href="/assistChildren">救助儿童</a></li>
+                        <li><a href="/finp">寻人启事</a></li>
+                        <li><a href="/publish">发布</a></li>
+                        <!-- <li><a href="/Donate">募捐详情</a></li> -->
+                        <li><a href="/news">公益新闻</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,7 +61,7 @@
             <div class="contents">
                 <div id='userInfo' class="userInfo">
                     <div>
-                        <div class='uInfo font1'>您的实名认证状态:<span id="idChecked"><%= certificate_status %></span></div>
+                        <div class='uInfo font1'>您的实名认证状态:<span id="idChecked"><%= certificate_status %></span><a style='margin-left:15px;' href='/editPersonalInfo'>修改个人信息</a></div>
                         <div class='uInfo font1'>电子邮箱:<span id="mail"><%= mail %></span></div>
                         <div class='uInfo font1'><span>出生日期:</span><span id='birthday'><%= birthday %></span></div>
         

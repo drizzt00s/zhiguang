@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="stylesheets/style1.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/style2.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/stylen.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/reset.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/typography.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/common.css" type="text/css" media="screen"/>
+
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/vue.js"></script>
+    <script type="text/javascript" src="javascripts/rotator.js"></script>
+    <script type="text/javascript" src="javascripts/tweet.js"></script>
+    
+    <title>织光公益</title>
+    <style>
+
+
+    </style>
+    <style>
+      .contents{
+          padding:20px;
+      }
+      .contents *{
+          font-size: 18px;
+          line-height: 30px;
+      }
+  
+ 
+    </style>
+  </head>
+
+  <body>
+    <div id="wrapper">
+        <%- include ../partials/header.ejs %>
+        <div class="contents">
+            <div class="contents">
+                <div><span>性别:</span><span>男</span></div> 
+                <div><span>出生日期:</span><span>1945-8-1</span></div>
+                <div><span>电子邮箱:</span><span>ttqqai@163.com</span></div>
+                <div><button><a style='color:#000' href="/editPs">修改信息</a></button></div>
+            </div>
+        </div>
+       
+    </div>
+    <%- include ../partials/footer.ejs %>
+
+    <script>
+        $(document).ready(function () {
+   
+    
+        });
+    </script>
+
+  </body>

@@ -60,10 +60,11 @@ var missingPlRouter = require('./routes/missingPlRouter');
 var jubaoFalseDonationRouter = require('./routes/jubaoFalseDonationRouter');
 var jubaoFalseActRouter = require('./routes/jubaoFalseActRouter');
 var newsRouter = require('./routes/newsRouter');
-
 var newsDetailRouter = require('./routes/newsDetailRouter');
-
-
+var assistChildrenRouter = require('./routes/assistChildrenRouter');
+var publishRouter = require('./routes/publishRouter');
+var editPersonalInfoRouter = require('./routes/editPersonalInfoRouter');
+var editPsRouter =  require('./routes/editPsRouter');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -96,9 +97,14 @@ app.use("/missingPl", missingPlRouter);
 app.use("/jubaoFalseDonation", jubaoFalseDonationRouter);
 app.use("/jubaoFalseAct", jubaoFalseActRouter);
 app.use("/news", newsRouter);
-
-
 app.use("/newsDetail", newsDetailRouter);
+app.use("/assistChildren", assistChildrenRouter);
+app.use("/publish", publishRouter);
+app.use("/editPersonalInfo", editPersonalInfoRouter);
+app.use("/editPs", editPsRouter);
+
+
+
 
 
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="stylesheets/style1.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/style2.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/stylen.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/reset.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/typography.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/common.css" type="text/css" media="screen"/>
+
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/vue.js"></script>
+    <script type="text/javascript" src="javascripts/rotator.js"></script>
+    <script type="text/javascript" src="javascripts/tweet.js"></script>
+    
+    <title>织光公益</title>
+    <style>
+
+
+    </style>
+    <style>
+      .contents{
+          padding:20px;
+      }
+      .contents *{
+        
+      }
+      .ps{
+          width:200px;
+          height:25px;
+          line-height: 25px;
+          margin-left:5px;
+      }
+      .ps2{
+          margin-left:37px;
+      }
+      .t1{
+          margin-top:15px;
+        
+      }
+      .t3{
+          margin-top:15px;
+      }
+      .tb{
+          width:100px;
+          height:45px;
+      }
+ 
+    </style>
+  </head>
+
+  <body>
+    <div id="wrapper">
+        <%- include ../partials/header.ejs %>
+        <div class="contents">
+            <div class="contents">
+                <div><span>性别:</span><input class='ps ps2' type='text' /></div> 
+                <div class='t1'><span>出生日期:</span><input class='ps' type='text' /></div>
+                <div class='t1'><span>电子邮箱:</span><input class='ps' type='text' /></div>
+                <div class='t3'><button class='tb'><a style='color:#000' href="#" onclick="alert('修改成功');">修改信息</a></button></div>
+            </div>
+        </div>
+       
+    </div>
+    <%- include ../partials/footer.ejs %>
+
+    <script>
+        $(document).ready(function () {
+   
+    
+        });
+    </script>
+
+  </body>
